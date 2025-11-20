@@ -1,0 +1,2186 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_b82ffe75cc708d39495ffa586b902957 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+    <script src="https://cdn.jsdelivr.net/gh/python-visualization/folium@main/folium/templates/leaflet_heat.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/leaflet.markercluster.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.Default.css"/>
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_b82ffe75cc708d39495ffa586b902957" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_b82ffe75cc708d39495ffa586b902957 = L.map(
+                "map_b82ffe75cc708d39495ffa586b902957",
+                {
+                    center: [30.0, 10.0],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 2,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_7bcf57f0728d195bb47daeaa95703e3c = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors", "detectRetina": false, "maxNativeZoom": 19, "maxZoom": 19, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            );
+        
+    
+            tile_layer_7bcf57f0728d195bb47daeaa95703e3c.addTo(map_b82ffe75cc708d39495ffa586b902957);
+        
+    
+            var heat_map_e0205d2f545be80fc3bb61d5f9d31b44 = L.heatLayer(
+                [[59.44, 10.66], [44.89, -122.96], [30.4, -97.71], [42.42, -71.25], [29.91, -95.62], [33.65, -117.71], [37.41, -121.95], [25.77, -80.14], [37.42, -122.09], [37.37, -121.97], [37.76, -122.41], [29.88, 121.64], [49.27, -123.1], [34.15, -118.15], [30.23, -97.62], [37.43, -122.17], [22.74, 113.96], [31.0, 121.37], [31.03, 121.47], [31.13, 121.61], [40.04, 116.36], [31.19, 121.62], [22.56, 113.96], [22.72, 113.86], [22.58, 113.95], [30.25, 120.25], [31.03, 121.47], [40.13, 116.43], [40.05, 116.32], [22.53, 113.95], [40.0, 116.34], [31.3, 120.78], [40.04, 116.38], [39.99, 116.32], [39.8, 116.56], [30.25, 119.91], [30.19, 120.22], [30.33, 120.07], [31.14, 121.61], [39.79, 116.56], [22.58, 113.96], [31.21, 120.57], [22.58, 113.93]],
+                {"blur": 15, "maxZoom": 18, "minOpacity": 0.5, "radius": 25}
+            );
+        
+    
+            heat_map_e0205d2f545be80fc3bb61d5f9d31b44.addTo(map_b82ffe75cc708d39495ffa586b902957);
+        
+    
+            var marker_cluster_10ea701e6bed96c037c494563bca5929 = L.markerClusterGroup(
+                {"disableClusteringAtZoom": 10}
+            );
+        
+    
+            var marker_ca61a61691fb1edd26a4c244a799951c = L.marker(
+                [59.44, 10.66],
+                {}
+            ).addTo(marker_cluster_10ea701e6bed96c037c494563bca5929);
+        
+    
+            var icon_66062dddf42ac08fd20331a80b1c4bf6 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "robot", "iconColor": "white", "markerColor": "darkblue", "prefix": "fa"}
+            );
+            marker_ca61a61691fb1edd26a4c244a799951c.setIcon(icon_66062dddf42ac08fd20331a80b1c4bf6);
+        
+    
+        var popup_6b6665ba312eeb6eecb2c884ee640e79 = L.popup({"maxWidth": 200});
+
+        
+            
+                var i_frame_9008c1285fc54ee65b9e75e1e5608d44 = $(`<iframe src="data:text/html;charset=utf-8;base64,CiAgICAKICAgICAgICA8ZGl2IHN0eWxlPSJ0ZXh0LWFsaWduOiBjZW50ZXI7IGZvbnQtZmFtaWx5OiAnSGVsdmV0aWNhIE5ldWUnLCBBcmlhbCwgc2Fucy1zZXJpZjsiPgogICAgICAgICAgICA8aDQgc3R5bGU9Im1hcmdpbi1ib3R0b206IDE1cHg7IGZvbnQtc2l6ZTogMTZweDsiPjFYIFRlY2hub2xvZ2llczwvaDQ+CiAgICAgICAgICAgIDxhIGhyZWY9Imh0dHBzOi8vd3d3LjF4LnRlY2gvIiB0YXJnZXQ9Il9ibGFuayIgc3R5bGU9IgogICAgICAgICAgICAgICAgZGlzcGxheTogaW5saW5lLWJsb2NrOwogICAgICAgICAgICAgICAgcGFkZGluZzogOHB4IDE4cHg7CiAgICAgICAgICAgICAgICBmb250LXNpemU6IDE0cHg7CiAgICAgICAgICAgICAgICBmb250LXdlaWdodDogYm9sZDsKICAgICAgICAgICAgICAgIGNvbG9yOiAjZmZmZmZmOwogICAgICAgICAgICAgICAgYmFja2dyb3VuZC1jb2xvcjogIzAwN0JGRjsKICAgICAgICAgICAgICAgIGJvcmRlcjogbm9uZTsKICAgICAgICAgICAgICAgIGJvcmRlci1yYWRpdXM6IDVweDsKICAgICAgICAgICAgICAgIHRleHQtZGVjb3JhdGlvbjogbm9uZTsKICAgICAgICAgICAgICAgIGJveC1zaGFkb3c6IDAgMnB4IDRweCByZ2JhKDAsMCwwLDAuMik7CiAgICAgICAgICAgICI+6K6/6Zeu5a6Y572RPC9hPgogICAgICAgIDwvZGl2PgogICAgICAgIA==" width="200" style="border:none !important;" height="80"></iframe>`)[0];
+                popup_6b6665ba312eeb6eecb2c884ee640e79.setContent(i_frame_9008c1285fc54ee65b9e75e1e5608d44);
+            
+        
+
+        marker_ca61a61691fb1edd26a4c244a799951c.bindPopup(popup_6b6665ba312eeb6eecb2c884ee640e79)
+        ;
+
+        
+    
+    
+            marker_ca61a61691fb1edd26a4c244a799951c.bindTooltip(
+                `<div>
+                     
+        <div style="font-size: 16px; font-family: 'Helvetica Neue', Arial, sans-serif; padding: 5px; max-width: 600px;">
+            <p style="margin: 0 0 15px 0;"><b>公司名:</b> 1X Technologies</p>
+            <p style="margin: 0 0 15px 0;"><b>地区:</b> 挪威奥斯陆</p>
+            <p style="margin: 0 0 15px 0;"><b>分类:</b> 通用机器人</p>
+            <p style="margin: 0 0 15px 0;"><b>成立时间:</b> 2014年</p>
+            <p style="margin: 0 0 15px 0;"><b>创始人/团队:</b> Bernt Øivind Børnich（领导公司从Halodi<br>Robotics转型为1X，推动与OpenAI合作，实现机器人AI集成<br>）；Eric Jang（前google机器人研究 ）作为AI leader</p>
+            <p style="margin: 0 0 15px 0;"><b>代表产品:</b> EVE（轮式企业机器人）；NEO（双足家用人形机器人，高1.65<br>米、负载10kg、成本目标2万美元）；Redwood<br>（1.6亿参数VLA+RL运动控制、5Hz端侧运行）、1X World<br>Model世界模型（模拟器）</p>
+            <hr style="margin: 15px 0;">
+            <p style="margin: 0;"><b>公司简要介绍:</b></p>
+            <p style="margin: 0; font-style: italic;">取代Figure成为Open AI协作最紧密机器人公司。通过 VR<br>训练与真实场景数据闭环实现能力进化，自研的视觉操控<br>模型（Visual Manipulation<br>Model）可直接从原始传感器数据预动作轨迹；腱绳驱动，NE<br>O Gamma 采用日本 Shemiseki<br>技术编织的尼龙外壳，结合接触式力反馈机制，将意外碰撞<br>力控制在 2N 以下</p>
+        </div>
+        
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_81c0f35ab19f3ef98cc0a1cd0572e38b = L.marker(
+                [44.89, -122.96],
+                {}
+            ).addTo(marker_cluster_10ea701e6bed96c037c494563bca5929);
+        
+    
+            var icon_aa852645d342923fb3ea705c204c0f46 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "robot", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_81c0f35ab19f3ef98cc0a1cd0572e38b.setIcon(icon_aa852645d342923fb3ea705c204c0f46);
+        
+    
+        var popup_7cf88961980b7b3fab7437c447948a46 = L.popup({"maxWidth": 200});
+
+        
+            
+                var i_frame_456addab3833a4c6588bfa872edd949d = $(`<iframe src="data:text/html;charset=utf-8;base64,CiAgICAKICAgICAgICA8ZGl2IHN0eWxlPSJ0ZXh0LWFsaWduOiBjZW50ZXI7IGZvbnQtZmFtaWx5OiAnSGVsdmV0aWNhIE5ldWUnLCBBcmlhbCwgc2Fucy1zZXJpZjsiPgogICAgICAgICAgICA8aDQgc3R5bGU9Im1hcmdpbi1ib3R0b206IDE1cHg7IGZvbnQtc2l6ZTogMTZweDsiPkFnaWxpdHkgUm9ib3RpY3M8L2g0PgogICAgICAgICAgICA8YSBocmVmPSJodHRwczovL3d3dy5hZ2lsaXR5cm9ib3RpY3MuY29tIiB0YXJnZXQ9Il9ibGFuayIgc3R5bGU9IgogICAgICAgICAgICAgICAgZGlzcGxheTogaW5saW5lLWJsb2NrOwogICAgICAgICAgICAgICAgcGFkZGluZzogOHB4IDE4cHg7CiAgICAgICAgICAgICAgICBmb250LXNpemU6IDE0cHg7CiAgICAgICAgICAgICAgICBmb250LXdlaWdodDogYm9sZDsKICAgICAgICAgICAgICAgIGNvbG9yOiAjZmZmZmZmOwogICAgICAgICAgICAgICAgYmFja2dyb3VuZC1jb2xvcjogIzAwN0JGRjsKICAgICAgICAgICAgICAgIGJvcmRlcjogbm9uZTsKICAgICAgICAgICAgICAgIGJvcmRlci1yYWRpdXM6IDVweDsKICAgICAgICAgICAgICAgIHRleHQtZGVjb3JhdGlvbjogbm9uZTsKICAgICAgICAgICAgICAgIGJveC1zaGFkb3c6IDAgMnB4IDRweCByZ2JhKDAsMCwwLDAuMik7CiAgICAgICAgICAgICI+6K6/6Zeu5a6Y572RPC9hPgogICAgICAgIDwvZGl2PgogICAgICAgIA==" width="200" style="border:none !important;" height="80"></iframe>`)[0];
+                popup_7cf88961980b7b3fab7437c447948a46.setContent(i_frame_456addab3833a4c6588bfa872edd949d);
+            
+        
+
+        marker_81c0f35ab19f3ef98cc0a1cd0572e38b.bindPopup(popup_7cf88961980b7b3fab7437c447948a46)
+        ;
+
+        
+    
+    
+            marker_81c0f35ab19f3ef98cc0a1cd0572e38b.bindTooltip(
+                `<div>
+                     
+        <div style="font-size: 16px; font-family: 'Helvetica Neue', Arial, sans-serif; padding: 5px; max-width: 600px;">
+            <p style="margin: 0 0 15px 0;"><b>公司名:</b> Agility Robotics</p>
+            <p style="margin: 0 0 15px 0;"><b>地区:</b> 美国俄勒冈州Salem</p>
+            <p style="margin: 0 0 15px 0;"><b>分类:</b> 人形机器人</p>
+            <p style="margin: 0 0 15px 0;"><b>成立时间:</b> 2015年</p>
+            <p style="margin: 0 0 15px 0;"><b>创始人/团队:</b> Peggy<br>Johnson（前Qualcomm/前Microsoft）；CTO/联合创始人:<br>Jonathan Hurst（OSU教授）；CBO: Aindrea<br>Campbell；联合创始人: Damion Shelton</p>
+            <p style="margin: 0 0 15px 0;"><b>代表产品:</b> Digit（双足人形机器人，高5英尺9英寸、负载35磅/22.68kg<br>，单台25万美金）；Agility Arc（云自动化平台）</p>
+            <hr style="margin: 15px 0;">
+            <p style="margin: 0;"><b>公司简要介绍:</b></p>
+            <p style="margin: 0; font-style: italic;">混合AI+硬件路径：使用AI控制层次，实现动态平衡与步行；<br>提升复杂地形适应能力。其腿部结构折叠后仅占 0.2<br>立方米空间，便于运输和仓储。</p>
+        </div>
+        
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_992049d676d3a26ddd4615726183a314 = L.marker(
+                [30.4, -97.71],
+                {}
+            ).addTo(marker_cluster_10ea701e6bed96c037c494563bca5929);
+        
+    
+            var icon_c62a6a711056e0ce2b9ba9ce9b54dedd = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "robot", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_992049d676d3a26ddd4615726183a314.setIcon(icon_c62a6a711056e0ce2b9ba9ce9b54dedd);
+        
+    
+        var popup_41f53a96fa413840fbf292784603ec29 = L.popup({"maxWidth": 200});
+
+        
+            
+                var i_frame_ba9a8595ac3d8df301edcf76ecdcd1dc = $(`<iframe src="data:text/html;charset=utf-8;base64,CiAgICAKICAgICAgICA8ZGl2IHN0eWxlPSJ0ZXh0LWFsaWduOiBjZW50ZXI7IGZvbnQtZmFtaWx5OiAnSGVsdmV0aWNhIE5ldWUnLCBBcmlhbCwgc2Fucy1zZXJpZjsiPgogICAgICAgICAgICA8aDQgc3R5bGU9Im1hcmdpbi1ib3R0b206IDE1cHg7IGZvbnQtc2l6ZTogMTZweDsiPkFwcHRyb25pazwvaDQ+CiAgICAgICAgICAgIDxhIGhyZWY9Imh0dHBzOi8vd3d3LmFwcHRyb25pay5jb20iIHRhcmdldD0iX2JsYW5rIiBzdHlsZT0iCiAgICAgICAgICAgICAgICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7CiAgICAgICAgICAgICAgICBwYWRkaW5nOiA4cHggMThweDsKICAgICAgICAgICAgICAgIGZvbnQtc2l6ZTogMTRweDsKICAgICAgICAgICAgICAgIGZvbnQtd2VpZ2h0OiBib2xkOwogICAgICAgICAgICAgICAgY29sb3I6ICNmZmZmZmY7CiAgICAgICAgICAgICAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjMDA3QkZGOwogICAgICAgICAgICAgICAgYm9yZGVyOiBub25lOwogICAgICAgICAgICAgICAgYm9yZGVyLXJhZGl1czogNXB4OwogICAgICAgICAgICAgICAgdGV4dC1kZWNvcmF0aW9uOiBub25lOwogICAgICAgICAgICAgICAgYm94LXNoYWRvdzogMCAycHggNHB4IHJnYmEoMCwwLDAsMC4yKTsKICAgICAgICAgICAgIj7orr/pl67lrpjnvZE8L2E+CiAgICAgICAgPC9kaXY+CiAgICAgICAg" width="200" style="border:none !important;" height="80"></iframe>`)[0];
+                popup_41f53a96fa413840fbf292784603ec29.setContent(i_frame_ba9a8595ac3d8df301edcf76ecdcd1dc);
+            
+        
+
+        marker_992049d676d3a26ddd4615726183a314.bindPopup(popup_41f53a96fa413840fbf292784603ec29)
+        ;
+
+        
+    
+    
+            marker_992049d676d3a26ddd4615726183a314.bindTooltip(
+                `<div>
+                     
+        <div style="font-size: 16px; font-family: 'Helvetica Neue', Arial, sans-serif; padding: 5px; max-width: 600px;">
+            <p style="margin: 0 0 15px 0;"><b>公司名:</b> Apptronik</p>
+            <p style="margin: 0 0 15px 0;"><b>地区:</b> 美国德州Austin</p>
+            <p style="margin: 0 0 15px 0;"><b>分类:</b> 通用人形机器人</p>
+            <p style="margin: 0 0 15px 0;"><b>成立时间:</b> 2016年</p>
+            <p style="margin: 0 0 15px 0;"><b>创始人/团队:</b> Jeff Cardenas（前通用汽车工程师）；CTO: Nick<br>Paine（前NASA）；联合创始人: Luis Sentis（UT<br>Austin副教授，NASA Valkyrie 项目核心成员）</p>
+            <p style="margin: 0 0 15px 0;"><b>代表产品:</b> Apollo（通用人形机器人，高1.75米、负载20kg，支持自主导<br>航与工具使用；模块化设计，可以轮式/足式）；Valkyrie（前<br>五年和NASA合作的原型）</p>
+            <hr style="margin: 15px 0;">
+            <p style="margin: 0;"><b>公司简要介绍:</b></p>
+            <p style="margin: 0; font-style: italic;">模块化设计+AI路径：电动关节驱动、AI视觉/力控，实现拾<br>取/码垛；轻量化材料降低成本（< $5万美元/台）</p>
+        </div>
+        
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_f03c2b736db8df1b66469326e5bb7daf = L.marker(
+                [42.42, -71.25],
+                {}
+            ).addTo(marker_cluster_10ea701e6bed96c037c494563bca5929);
+        
+    
+            var icon_e3c855d811286715ec96b0f6e9bb9557 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "robot", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_f03c2b736db8df1b66469326e5bb7daf.setIcon(icon_e3c855d811286715ec96b0f6e9bb9557);
+        
+    
+        var popup_34e2446c747a250300b59a8c89085686 = L.popup({"maxWidth": 200});
+
+        
+            
+                var i_frame_0241726cb0e34e7e5368e904af2b16f3 = $(`<iframe src="data:text/html;charset=utf-8;base64,CiAgICAKICAgICAgICA8ZGl2IHN0eWxlPSJ0ZXh0LWFsaWduOiBjZW50ZXI7IGZvbnQtZmFtaWx5OiAnSGVsdmV0aWNhIE5ldWUnLCBBcmlhbCwgc2Fucy1zZXJpZjsiPgogICAgICAgICAgICA8aDQgc3R5bGU9Im1hcmdpbi1ib3R0b206IDE1cHg7IGZvbnQtc2l6ZTogMTZweDsiPkJvc3RvbiBEeW5hbWljczwvaDQ+CiAgICAgICAgICAgIDxhIGhyZWY9Imh0dHBzOi8vd3d3LmJvc3RvbmR5bmFtaWNzLmNvbSIgdGFyZ2V0PSJfYmxhbmsiIHN0eWxlPSIKICAgICAgICAgICAgICAgIGRpc3BsYXk6IGlubGluZS1ibG9jazsKICAgICAgICAgICAgICAgIHBhZGRpbmc6IDhweCAxOHB4OwogICAgICAgICAgICAgICAgZm9udC1zaXplOiAxNHB4OwogICAgICAgICAgICAgICAgZm9udC13ZWlnaHQ6IGJvbGQ7CiAgICAgICAgICAgICAgICBjb2xvcjogI2ZmZmZmZjsKICAgICAgICAgICAgICAgIGJhY2tncm91bmQtY29sb3I6ICMwMDdCRkY7CiAgICAgICAgICAgICAgICBib3JkZXI6IG5vbmU7CiAgICAgICAgICAgICAgICBib3JkZXItcmFkaXVzOiA1cHg7CiAgICAgICAgICAgICAgICB0ZXh0LWRlY29yYXRpb246IG5vbmU7CiAgICAgICAgICAgICAgICBib3gtc2hhZG93OiAwIDJweCA0cHggcmdiYSgwLDAsMCwwLjIpOwogICAgICAgICAgICAiPuiuv+mXruWumOe9kTwvYT4KICAgICAgICA8L2Rpdj4KICAgICAgICA=" width="200" style="border:none !important;" height="80"></iframe>`)[0];
+                popup_34e2446c747a250300b59a8c89085686.setContent(i_frame_0241726cb0e34e7e5368e904af2b16f3);
+            
+        
+
+        marker_f03c2b736db8df1b66469326e5bb7daf.bindPopup(popup_34e2446c747a250300b59a8c89085686)
+        ;
+
+        
+    
+    
+            marker_f03c2b736db8df1b66469326e5bb7daf.bindTooltip(
+                `<div>
+                     
+        <div style="font-size: 16px; font-family: 'Helvetica Neue', Arial, sans-serif; padding: 5px; max-width: 600px;">
+            <p style="margin: 0 0 15px 0;"><b>公司名:</b> Boston Dynamics</p>
+            <p style="margin: 0 0 15px 0;"><b>地区:</b> 美国马萨诸塞州</p>
+            <p style="margin: 0 0 15px 0;"><b>分类:</b> 国际人形/四足机器人</p>
+            <p style="margin: 0 0 15px 0;"><b>成立时间:</b> 1992年</p>
+            <p style="margin: 0 0 15px 0;"><b>创始人/团队:</b> Marc Raibert</p>
+            <p style="margin: 0 0 15px 0;"><b>代表产品:</b> Atlas、Spot</p>
+            <hr style="margin: 15px 0;">
+            <p style="margin: 0;"><b>公司简要介绍:</b></p>
+            <p style="margin: 0; font-style: italic;">全球技术标杆，Atlas双足机器人、Spot四足机器人</p>
+        </div>
+        
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_d139682eeaf00046a86f82c7452523bb = L.marker(
+                [29.91, -95.62],
+                {}
+            ).addTo(marker_cluster_10ea701e6bed96c037c494563bca5929);
+        
+    
+            var icon_095b71841e8d4141027e1a95525cd06f = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "robot", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_d139682eeaf00046a86f82c7452523bb.setIcon(icon_095b71841e8d4141027e1a95525cd06f);
+        
+    
+        var popup_a816d8bdfb98d3bfaa764b9051ec490f = L.popup({"maxWidth": 200});
+
+        
+            
+                var i_frame_3dc5f00d8f828dd218014ee3fbe69423 = $(`<iframe src="data:text/html;charset=utf-8;base64,CiAgICAKICAgICAgICA8ZGl2IHN0eWxlPSJ0ZXh0LWFsaWduOiBjZW50ZXI7IGZvbnQtZmFtaWx5OiAnSGVsdmV0aWNhIE5ldWUnLCBBcmlhbCwgc2Fucy1zZXJpZjsiPgogICAgICAgICAgICA8aDQgc3R5bGU9Im1hcmdpbi1ib3R0b206IDE1cHg7IGZvbnQtc2l6ZTogMTZweDsiPkR5bmEgUm9ib3RpY3M8L2g0PgogICAgICAgICAgICA8YSBocmVmPSJodHRwczovL3d3dy5keW5hLmNvLyIgdGFyZ2V0PSJfYmxhbmsiIHN0eWxlPSIKICAgICAgICAgICAgICAgIGRpc3BsYXk6IGlubGluZS1ibG9jazsKICAgICAgICAgICAgICAgIHBhZGRpbmc6IDhweCAxOHB4OwogICAgICAgICAgICAgICAgZm9udC1zaXplOiAxNHB4OwogICAgICAgICAgICAgICAgZm9udC13ZWlnaHQ6IGJvbGQ7CiAgICAgICAgICAgICAgICBjb2xvcjogI2ZmZmZmZjsKICAgICAgICAgICAgICAgIGJhY2tncm91bmQtY29sb3I6ICMwMDdCRkY7CiAgICAgICAgICAgICAgICBib3JkZXI6IG5vbmU7CiAgICAgICAgICAgICAgICBib3JkZXItcmFkaXVzOiA1cHg7CiAgICAgICAgICAgICAgICB0ZXh0LWRlY29yYXRpb246IG5vbmU7CiAgICAgICAgICAgICAgICBib3gtc2hhZG93OiAwIDJweCA0cHggcmdiYSgwLDAsMCwwLjIpOwogICAgICAgICAgICAiPuiuv+mXruWumOe9kTwvYT4KICAgICAgICA8L2Rpdj4KICAgICAgICA=" width="200" style="border:none !important;" height="80"></iframe>`)[0];
+                popup_a816d8bdfb98d3bfaa764b9051ec490f.setContent(i_frame_3dc5f00d8f828dd218014ee3fbe69423);
+            
+        
+
+        marker_d139682eeaf00046a86f82c7452523bb.bindPopup(popup_a816d8bdfb98d3bfaa764b9051ec490f)
+        ;
+
+        
+    
+    
+            marker_d139682eeaf00046a86f82c7452523bb.bindTooltip(
+                `<div>
+                     
+        <div style="font-size: 16px; font-family: 'Helvetica Neue', Arial, sans-serif; padding: 5px; max-width: 600px;">
+            <p style="margin: 0 0 15px 0;"><b>公司名:</b> Dyna Robotics</p>
+            <p style="margin: 0 0 15px 0;"><b>地区:</b> 美国</p>
+            <p style="margin: 0 0 15px 0;"><b>分类:</b> 机器人开发</p>
+            <p style="margin: 0 0 15px 0;"><b>成立时间:</b> 未明确</p>
+            <p style="margin: 0 0 15px 0;"><b>创始人/团队:</b> Lindon Gao 与 York Yang 联合创办，Jason Ma 参与</p>
+            <p style="margin: 0 0 15px 0;"><b>代表产品:</b> 开发具身智能机器人，“DYNA‑1”基础模型机器人</p>
+            <hr style="margin: 15px 0;">
+            <p style="margin: 0;"><b>公司简要介绍:</b></p>
+            <p style="margin: 0; font-style: italic;">开发端到端人形机器人平台，简化开发流程</p>
+        </div>
+        
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_fd59015cd87ce1d5d086b61c1beb9e95 = L.marker(
+                [33.65, -117.71],
+                {}
+            ).addTo(marker_cluster_10ea701e6bed96c037c494563bca5929);
+        
+    
+            var icon_0c58ad2d29e36caaf1436b03fee2e457 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "robot", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_fd59015cd87ce1d5d086b61c1beb9e95.setIcon(icon_0c58ad2d29e36caaf1436b03fee2e457);
+        
+    
+        var popup_5c01ca3db2b1a7a2dbfb2767a05a886c = L.popup({"maxWidth": 200});
+
+        
+            
+                var i_frame_9d0ed799d87c07d6f8839240d92d5544 = $(`<iframe src="data:text/html;charset=utf-8;base64,CiAgICAKICAgICAgICA8ZGl2IHN0eWxlPSJ0ZXh0LWFsaWduOiBjZW50ZXI7IGZvbnQtZmFtaWx5OiAnSGVsdmV0aWNhIE5ldWUnLCBBcmlhbCwgc2Fucy1zZXJpZjsiPgogICAgICAgICAgICA8aDQgc3R5bGU9Im1hcmdpbi1ib3R0b206IDE1cHg7IGZvbnQtc2l6ZTogMTZweDsiPkZpZWxkIEFJPC9oND4KICAgICAgICAgICAgPGEgaHJlZj0iaHR0cHM6Ly93d3cuZmllbGRhaS5jb20vIiB0YXJnZXQ9Il9ibGFuayIgc3R5bGU9IgogICAgICAgICAgICAgICAgZGlzcGxheTogaW5saW5lLWJsb2NrOwogICAgICAgICAgICAgICAgcGFkZGluZzogOHB4IDE4cHg7CiAgICAgICAgICAgICAgICBmb250LXNpemU6IDE0cHg7CiAgICAgICAgICAgICAgICBmb250LXdlaWdodDogYm9sZDsKICAgICAgICAgICAgICAgIGNvbG9yOiAjZmZmZmZmOwogICAgICAgICAgICAgICAgYmFja2dyb3VuZC1jb2xvcjogIzAwN0JGRjsKICAgICAgICAgICAgICAgIGJvcmRlcjogbm9uZTsKICAgICAgICAgICAgICAgIGJvcmRlci1yYWRpdXM6IDVweDsKICAgICAgICAgICAgICAgIHRleHQtZGVjb3JhdGlvbjogbm9uZTsKICAgICAgICAgICAgICAgIGJveC1zaGFkb3c6IDAgMnB4IDRweCByZ2JhKDAsMCwwLDAuMik7CiAgICAgICAgICAgICI+6K6/6Zeu5a6Y572RPC9hPgogICAgICAgIDwvZGl2PgogICAgICAgIA==" width="200" style="border:none !important;" height="80"></iframe>`)[0];
+                popup_5c01ca3db2b1a7a2dbfb2767a05a886c.setContent(i_frame_9d0ed799d87c07d6f8839240d92d5544);
+            
+        
+
+        marker_fd59015cd87ce1d5d086b61c1beb9e95.bindPopup(popup_5c01ca3db2b1a7a2dbfb2767a05a886c)
+        ;
+
+        
+    
+    
+            marker_fd59015cd87ce1d5d086b61c1beb9e95.bindTooltip(
+                `<div>
+                     
+        <div style="font-size: 16px; font-family: 'Helvetica Neue', Arial, sans-serif; padding: 5px; max-width: 600px;">
+            <p style="margin: 0 0 15px 0;"><b>公司名:</b> Field AI</p>
+            <p style="margin: 0 0 15px 0;"><b>地区:</b> 美国</p>
+            <p style="margin: 0 0 15px 0;"><b>分类:</b> 机器人AI系统</p>
+            <p style="margin: 0 0 15px 0;"><b>成立时间:</b> 未明确</p>
+            <p style="margin: 0 0 15px 0;"><b>创始人/团队:</b> Ali Agha 创办</p>
+            <p style="margin: 0 0 15px 0;"><b>代表产品:</b> 开发工业现场用机器人“脑”软件／自主模型赋能多种机器<br>人</p>
+            <hr style="margin: 15px 0;">
+            <p style="margin: 0;"><b>公司简要介绍:</b></p>
+            <p style="margin: 0; font-style: italic;">开发多模态基础模型，包括LLM用于规划、视觉语言模型、世<br>界模型等</p>
+        </div>
+        
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_c298a52d4c2af845d711ff3e83d417eb = L.marker(
+                [37.41, -121.95],
+                {}
+            ).addTo(marker_cluster_10ea701e6bed96c037c494563bca5929);
+        
+    
+            var icon_d2fc819a35f75a438a2ae070bfa01b6b = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "robot", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_c298a52d4c2af845d711ff3e83d417eb.setIcon(icon_d2fc819a35f75a438a2ae070bfa01b6b);
+        
+    
+        var popup_825883b2ae27c3ff867b15d8b5230924 = L.popup({"maxWidth": 200});
+
+        
+            
+                var i_frame_56dc6ce521e12a83e19187c9c480fc34 = $(`<iframe src="data:text/html;charset=utf-8;base64,CiAgICAKICAgICAgICA8ZGl2IHN0eWxlPSJ0ZXh0LWFsaWduOiBjZW50ZXI7IGZvbnQtZmFtaWx5OiAnSGVsdmV0aWNhIE5ldWUnLCBBcmlhbCwgc2Fucy1zZXJpZjsiPgogICAgICAgICAgICA8aDQgc3R5bGU9Im1hcmdpbi1ib3R0b206IDE1cHg7IGZvbnQtc2l6ZTogMTZweDsiPkZpZ3VyZSBBSTwvaDQ+CiAgICAgICAgICAgIDxhIGhyZWY9Imh0dHBzOi8vd3d3LmZpZ3VyZS5haSIgdGFyZ2V0PSJfYmxhbmsiIHN0eWxlPSIKICAgICAgICAgICAgICAgIGRpc3BsYXk6IGlubGluZS1ibG9jazsKICAgICAgICAgICAgICAgIHBhZGRpbmc6IDhweCAxOHB4OwogICAgICAgICAgICAgICAgZm9udC1zaXplOiAxNHB4OwogICAgICAgICAgICAgICAgZm9udC13ZWlnaHQ6IGJvbGQ7CiAgICAgICAgICAgICAgICBjb2xvcjogI2ZmZmZmZjsKICAgICAgICAgICAgICAgIGJhY2tncm91bmQtY29sb3I6ICMwMDdCRkY7CiAgICAgICAgICAgICAgICBib3JkZXI6IG5vbmU7CiAgICAgICAgICAgICAgICBib3JkZXItcmFkaXVzOiA1cHg7CiAgICAgICAgICAgICAgICB0ZXh0LWRlY29yYXRpb246IG5vbmU7CiAgICAgICAgICAgICAgICBib3gtc2hhZG93OiAwIDJweCA0cHggcmdiYSgwLDAsMCwwLjIpOwogICAgICAgICAgICAiPuiuv+mXruWumOe9kTwvYT4KICAgICAgICA8L2Rpdj4KICAgICAgICA=" width="200" style="border:none !important;" height="80"></iframe>`)[0];
+                popup_825883b2ae27c3ff867b15d8b5230924.setContent(i_frame_56dc6ce521e12a83e19187c9c480fc34);
+            
+        
+
+        marker_c298a52d4c2af845d711ff3e83d417eb.bindPopup(popup_825883b2ae27c3ff867b15d8b5230924)
+        ;
+
+        
+    
+    
+            marker_c298a52d4c2af845d711ff3e83d417eb.bindTooltip(
+                `<div>
+                     
+        <div style="font-size: 16px; font-family: 'Helvetica Neue', Arial, sans-serif; padding: 5px; max-width: 600px;">
+            <p style="margin: 0 0 15px 0;"><b>公司名:</b> Figure AI</p>
+            <p style="margin: 0 0 15px 0;"><b>地区:</b> 美国加州</p>
+            <p style="margin: 0 0 15px 0;"><b>分类:</b> 通用人形机器人</p>
+            <p style="margin: 0 0 15px 0;"><b>成立时间:</b> 2022年</p>
+            <p style="margin: 0 0 15px 0;"><b>创始人/团队:</b> CEO/创始人: Brett Adcock（前Archer<br>Aviation创始人）；CTO: Jerry Pratt（前Boston<br>Dynamics工程师，现在已经离开创办新公司）</p>
+            <p style="margin: 0 0 15px 0;"><b>代表产品:</b> Figure 01、Figure<br>02（商用自主人形机器人）；Helix（25年2月发布的端到端控<br>制模型，支持多机器人协作如咖啡制作、冰箱整理、25年8月<br>演示叠毛巾）</p>
+            <hr style="margin: 15px 0;">
+            <p style="margin: 0;"><b>公司简要介绍:</b></p>
+            <p style="margin: 0; font-style: italic;">端到端AI机器人堆栈；多模态训练（200Hz响应）；垂直硬件-<br>软件集成，实现精细操作与人类形态适应</p>
+        </div>
+        
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_a036acc93545a50506bbd806ce096ca2 = L.marker(
+                [25.77, -80.14],
+                {}
+            ).addTo(marker_cluster_10ea701e6bed96c037c494563bca5929);
+        
+    
+            var icon_fd7050a875c22ab7b7bbc82ed4855f08 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "robot", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_a036acc93545a50506bbd806ce096ca2.setIcon(icon_fd7050a875c22ab7b7bbc82ed4855f08);
+        
+    
+        var popup_02b6ab5b58477bac9683f854434ac192 = L.popup({"maxWidth": 200});
+
+        
+            
+                var i_frame_dcac5e027ff5280e6be594dd0c1428fe = $(`<iframe src="data:text/html;charset=utf-8;base64,CiAgICAKICAgICAgICA8ZGl2IHN0eWxlPSJ0ZXh0LWFsaWduOiBjZW50ZXI7IGZvbnQtZmFtaWx5OiAnSGVsdmV0aWNhIE5ldWUnLCBBcmlhbCwgc2Fucy1zZXJpZjsiPgogICAgICAgICAgICA8aDQgc3R5bGU9Im1hcmdpbi1ib3R0b206IDE1cHg7IGZvbnQtc2l6ZTogMTZweDsiPkdlbmVzaXMgQUk8L2g0PgogICAgICAgICAgICA8YSBocmVmPSJodHRwczovL2dlbmVzaXMtYWkuY29tcGFueS8iIHRhcmdldD0iX2JsYW5rIiBzdHlsZT0iCiAgICAgICAgICAgICAgICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7CiAgICAgICAgICAgICAgICBwYWRkaW5nOiA4cHggMThweDsKICAgICAgICAgICAgICAgIGZvbnQtc2l6ZTogMTRweDsKICAgICAgICAgICAgICAgIGZvbnQtd2VpZ2h0OiBib2xkOwogICAgICAgICAgICAgICAgY29sb3I6ICNmZmZmZmY7CiAgICAgICAgICAgICAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjMDA3QkZGOwogICAgICAgICAgICAgICAgYm9yZGVyOiBub25lOwogICAgICAgICAgICAgICAgYm9yZGVyLXJhZGl1czogNXB4OwogICAgICAgICAgICAgICAgdGV4dC1kZWNvcmF0aW9uOiBub25lOwogICAgICAgICAgICAgICAgYm94LXNoYWRvdzogMCAycHggNHB4IHJnYmEoMCwwLDAsMC4yKTsKICAgICAgICAgICAgIj7orr/pl67lrpjnvZE8L2E+CiAgICAgICAgPC9kaXY+CiAgICAgICAg" width="200" style="border:none !important;" height="80"></iframe>`)[0];
+                popup_02b6ab5b58477bac9683f854434ac192.setContent(i_frame_dcac5e027ff5280e6be594dd0c1428fe);
+            
+        
+
+        marker_a036acc93545a50506bbd806ce096ca2.bindPopup(popup_02b6ab5b58477bac9683f854434ac192)
+        ;
+
+        
+    
+    
+            marker_a036acc93545a50506bbd806ce096ca2.bindTooltip(
+                `<div>
+                     
+        <div style="font-size: 16px; font-family: 'Helvetica Neue', Arial, sans-serif; padding: 5px; max-width: 600px;">
+            <p style="margin: 0 0 15px 0;"><b>公司名:</b> Genesis AI</p>
+            <p style="margin: 0 0 15px 0;"><b>地区:</b> 美国</p>
+            <p style="margin: 0 0 15px 0;"><b>分类:</b> 通用机器人</p>
+            <p style="margin: 0 0 15px 0;"><b>成立时间:</b> 未明确</p>
+            <p style="margin: 0 0 15px 0;"><b>创始人/团队:</b> Zhou Xian & Theophile Gervet 创立（2024 年）</p>
+            <p style="margin: 0 0 15px 0;"><b>代表产品:</b> 全栈物理AI 实验室 + 通用机器人平台</p>
+            <hr style="margin: 15px 0;">
+            <p style="margin: 0;"><b>公司简要介绍:</b></p>
+            <p style="margin: 0; font-style: italic;">构建通用机器人系统，支持复杂环境中的运动与灵巧操作</p>
+        </div>
+        
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_05336eb5bca72f33eba8e395add4bead = L.marker(
+                [37.42, -122.09],
+                {}
+            ).addTo(marker_cluster_10ea701e6bed96c037c494563bca5929);
+        
+    
+            var icon_73d7ab097b744847ca2e65061b0e64c3 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "robot", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_05336eb5bca72f33eba8e395add4bead.setIcon(icon_73d7ab097b744847ca2e65061b0e64c3);
+        
+    
+        var popup_a6378f4c5d81cc0dc1caeed3ef9dbd16 = L.popup({"maxWidth": 200});
+
+        
+            
+                var i_frame_e9cff64862a1d40581be679cf58bf315 = $(`<iframe src="data:text/html;charset=utf-8;base64,CiAgICAKICAgICAgICA8ZGl2IHN0eWxlPSJ0ZXh0LWFsaWduOiBjZW50ZXI7IGZvbnQtZmFtaWx5OiAnSGVsdmV0aWNhIE5ldWUnLCBBcmlhbCwgc2Fucy1zZXJpZjsiPgogICAgICAgICAgICA8aDQgc3R5bGU9Im1hcmdpbi1ib3R0b206IDE1cHg7IGZvbnQtc2l6ZTogMTZweDsiPkdvb2dsZSBEZWVwTWluZDwvaDQ+CiAgICAgICAgICAgIDxhIGhyZWY9Imh0dHBzOi8vZGVlcG1pbmQuZ29vZ2xlIiB0YXJnZXQ9Il9ibGFuayIgc3R5bGU9IgogICAgICAgICAgICAgICAgZGlzcGxheTogaW5saW5lLWJsb2NrOwogICAgICAgICAgICAgICAgcGFkZGluZzogOHB4IDE4cHg7CiAgICAgICAgICAgICAgICBmb250LXNpemU6IDE0cHg7CiAgICAgICAgICAgICAgICBmb250LXdlaWdodDogYm9sZDsKICAgICAgICAgICAgICAgIGNvbG9yOiAjZmZmZmZmOwogICAgICAgICAgICAgICAgYmFja2dyb3VuZC1jb2xvcjogIzAwN0JGRjsKICAgICAgICAgICAgICAgIGJvcmRlcjogbm9uZTsKICAgICAgICAgICAgICAgIGJvcmRlci1yYWRpdXM6IDVweDsKICAgICAgICAgICAgICAgIHRleHQtZGVjb3JhdGlvbjogbm9uZTsKICAgICAgICAgICAgICAgIGJveC1zaGFkb3c6IDAgMnB4IDRweCByZ2JhKDAsMCwwLDAuMik7CiAgICAgICAgICAgICI+6K6/6Zeu5a6Y572RPC9hPgogICAgICAgIDwvZGl2PgogICAgICAgIA==" width="200" style="border:none !important;" height="80"></iframe>`)[0];
+                popup_a6378f4c5d81cc0dc1caeed3ef9dbd16.setContent(i_frame_e9cff64862a1d40581be679cf58bf315);
+            
+        
+
+        marker_05336eb5bca72f33eba8e395add4bead.bindPopup(popup_a6378f4c5d81cc0dc1caeed3ef9dbd16)
+        ;
+
+        
+    
+    
+            marker_05336eb5bca72f33eba8e395add4bead.bindTooltip(
+                `<div>
+                     
+        <div style="font-size: 16px; font-family: 'Helvetica Neue', Arial, sans-serif; padding: 5px; max-width: 600px;">
+            <p style="margin: 0 0 15px 0;"><b>公司名:</b> Google DeepMind</p>
+            <p style="margin: 0 0 15px 0;"><b>地区:</b> 美国</p>
+            <p style="margin: 0 0 15px 0;"><b>分类:</b> Gemini Robotics模型(与Apptronik和波士顿动力合作)</p>
+            <p style="margin: 0 0 15px 0;"><b>成立时间:</b> 2025年3月推出</p>
+            <p style="margin: 0 0 15px 0;"><b>创始人/团队:</b> 与Apptronik、波士顿动力合作</p>
+            <p style="margin: 0 0 15px 0;"><b>代表产品:</b> Gemini Robotics是基于Gemini<br>2.0基础模型的VLA模型，半开源，包括标准版和Gemini<br>Robotics-ER（Embodied Reasoning，具身推理版）,Genie<br>3世界模型, ASIMOV数据集与安全框架</p>
+            <hr style="margin: 15px 0;">
+            <p style="margin: 0;"><b>公司简要介绍:</b></p>
+            <p style="margin: 0; font-style: italic;">采用VLA框架，将视觉理解与行动规划集成；支持零-shot（<br>零样本）和few-shot学习，无需大量特定训练数据即可泛化<br>。</p>
+        </div>
+        
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_35388f8b26b6c4bd1471c645f46b6b1e = L.marker(
+                [37.37, -121.97],
+                {}
+            ).addTo(marker_cluster_10ea701e6bed96c037c494563bca5929);
+        
+    
+            var icon_565b653004bcaf31da54b4088715348e = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "robot", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_35388f8b26b6c4bd1471c645f46b6b1e.setIcon(icon_565b653004bcaf31da54b4088715348e);
+        
+    
+        var popup_b87e9775a0c2dca47e5baf04ab41a87e = L.popup({"maxWidth": 200});
+
+        
+            
+                var i_frame_4f5aa7bfef9fb9d24775770c7b1b8af5 = $(`<iframe src="data:text/html;charset=utf-8;base64,CiAgICAKICAgICAgICA8ZGl2IHN0eWxlPSJ0ZXh0LWFsaWduOiBjZW50ZXI7IGZvbnQtZmFtaWx5OiAnSGVsdmV0aWNhIE5ldWUnLCBBcmlhbCwgc2Fucy1zZXJpZjsiPgogICAgICAgICAgICA8aDQgc3R5bGU9Im1hcmdpbi1ib3R0b206IDE1cHg7IGZvbnQtc2l6ZTogMTZweDsiPk5WSURJQTwvaDQ+CiAgICAgICAgICAgIDxhIGhyZWY9Imh0dHBzOi8vd3d3Lm52aWRpYS5jb20iIHRhcmdldD0iX2JsYW5rIiBzdHlsZT0iCiAgICAgICAgICAgICAgICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7CiAgICAgICAgICAgICAgICBwYWRkaW5nOiA4cHggMThweDsKICAgICAgICAgICAgICAgIGZvbnQtc2l6ZTogMTRweDsKICAgICAgICAgICAgICAgIGZvbnQtd2VpZ2h0OiBib2xkOwogICAgICAgICAgICAgICAgY29sb3I6ICNmZmZmZmY7CiAgICAgICAgICAgICAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjMDA3QkZGOwogICAgICAgICAgICAgICAgYm9yZGVyOiBub25lOwogICAgICAgICAgICAgICAgYm9yZGVyLXJhZGl1czogNXB4OwogICAgICAgICAgICAgICAgdGV4dC1kZWNvcmF0aW9uOiBub25lOwogICAgICAgICAgICAgICAgYm94LXNoYWRvdzogMCAycHggNHB4IHJnYmEoMCwwLDAsMC4yKTsKICAgICAgICAgICAgIj7orr/pl67lrpjnvZE8L2E+CiAgICAgICAgPC9kaXY+CiAgICAgICAg" width="200" style="border:none !important;" height="80"></iframe>`)[0];
+                popup_b87e9775a0c2dca47e5baf04ab41a87e.setContent(i_frame_4f5aa7bfef9fb9d24775770c7b1b8af5);
+            
+        
+
+        marker_35388f8b26b6c4bd1471c645f46b6b1e.bindPopup(popup_b87e9775a0c2dca47e5baf04ab41a87e)
+        ;
+
+        
+    
+    
+            marker_35388f8b26b6c4bd1471c645f46b6b1e.bindTooltip(
+                `<div>
+                     
+        <div style="font-size: 16px; font-family: 'Helvetica Neue', Arial, sans-serif; padding: 5px; max-width: 600px;">
+            <p style="margin: 0 0 15px 0;"><b>公司名:</b> NVIDIA</p>
+            <p style="margin: 0 0 15px 0;"><b>地区:</b> 美国</p>
+            <p style="margin: 0 0 15px 0;"><b>分类:</b> 机器人平台</p>
+            <p style="margin: 0 0 15px 0;"><b>成立时间:</b> 未明确</p>
+            <p style="margin: 0 0 15px 0;"><b>创始人/团队:</b> Dr. Jim Fan（资深研究科学家）和Prof. Yuke<br>Zhu（教授级研究科学家），都来自李飞飞组</p>
+            <p style="margin: 0 0 15px 0;"><b>代表产品:</b> GROOT开源VLA+COSMOS世界模型</p>
+            <hr style="margin: 15px 0;">
+            <p style="margin: 0;"><b>公司简要介绍:</b></p>
+            <p style="margin: 0; font-style: italic;">开发多模态基础模型，包括LLM用于规划、视觉语言模型、世<br>界模型；通用机器人系统，支持复杂环境中的运动和灵巧操<br>纵；基础代理如大型行动模型，在游戏和模拟中自主探索。</p>
+        </div>
+        
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_300206874243a7cedf14d9b42ada075b = L.marker(
+                [37.76, -122.41],
+                {}
+            ).addTo(marker_cluster_10ea701e6bed96c037c494563bca5929);
+        
+    
+            var icon_a78565b155ca52cee1559540d8715a96 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "robot", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_300206874243a7cedf14d9b42ada075b.setIcon(icon_a78565b155ca52cee1559540d8715a96);
+        
+    
+        var popup_a92001673cb9a2dd51536569d881b052 = L.popup({"maxWidth": 200});
+
+        
+            
+                var i_frame_37c1971441ee54d16e512a1b6707e2a2 = $(`<iframe src="data:text/html;charset=utf-8;base64,CiAgICAKICAgICAgICA8ZGl2IHN0eWxlPSJ0ZXh0LWFsaWduOiBjZW50ZXI7IGZvbnQtZmFtaWx5OiAnSGVsdmV0aWNhIE5ldWUnLCBBcmlhbCwgc2Fucy1zZXJpZjsiPgogICAgICAgICAgICA8aDQgc3R5bGU9Im1hcmdpbi1ib3R0b206IDE1cHg7IGZvbnQtc2l6ZTogMTZweDsiPlBoeXNpY2FsIEludGVsbGlnZW5jZTwvaDQ+CiAgICAgICAgICAgIDxhIGhyZWY9Imh0dHBzOi8vd3d3LnBoeXNpY2FsaW50ZWxsaWdlbmNlLmNvbXBhbnkvIiB0YXJnZXQ9Il9ibGFuayIgc3R5bGU9IgogICAgICAgICAgICAgICAgZGlzcGxheTogaW5saW5lLWJsb2NrOwogICAgICAgICAgICAgICAgcGFkZGluZzogOHB4IDE4cHg7CiAgICAgICAgICAgICAgICBmb250LXNpemU6IDE0cHg7CiAgICAgICAgICAgICAgICBmb250LXdlaWdodDogYm9sZDsKICAgICAgICAgICAgICAgIGNvbG9yOiAjZmZmZmZmOwogICAgICAgICAgICAgICAgYmFja2dyb3VuZC1jb2xvcjogIzAwN0JGRjsKICAgICAgICAgICAgICAgIGJvcmRlcjogbm9uZTsKICAgICAgICAgICAgICAgIGJvcmRlci1yYWRpdXM6IDVweDsKICAgICAgICAgICAgICAgIHRleHQtZGVjb3JhdGlvbjogbm9uZTsKICAgICAgICAgICAgICAgIGJveC1zaGFkb3c6IDAgMnB4IDRweCByZ2JhKDAsMCwwLDAuMik7CiAgICAgICAgICAgICI+6K6/6Zeu5a6Y572RPC9hPgogICAgICAgIDwvZGl2PgogICAgICAgIA==" width="200" style="border:none !important;" height="80"></iframe>`)[0];
+                popup_a92001673cb9a2dd51536569d881b052.setContent(i_frame_37c1971441ee54d16e512a1b6707e2a2);
+            
+        
+
+        marker_300206874243a7cedf14d9b42ada075b.bindPopup(popup_a92001673cb9a2dd51536569d881b052)
+        ;
+
+        
+    
+    
+            marker_300206874243a7cedf14d9b42ada075b.bindTooltip(
+                `<div>
+                     
+        <div style="font-size: 16px; font-family: 'Helvetica Neue', Arial, sans-serif; padding: 5px; max-width: 600px;">
+            <p style="margin: 0 0 15px 0;"><b>公司名:</b> Physical Intelligence</p>
+            <p style="margin: 0 0 15px 0;"><b>地区:</b> 美国加州</p>
+            <p style="margin: 0 0 15px 0;"><b>分类:</b> 人形机器人</p>
+            <p style="margin: 0 0 15px 0;"><b>成立时间:</b> 2023年</p>
+            <p style="margin: 0 0 15px 0;"><b>创始人/团队:</b> Karol Hausman（前Google机器人科学家）；联合创始人:<br>Sergey Levine（UC Berkeley副教授）、Chelsea<br>Finn（Stanford助理教授，18年博士毕业，前UC berkeley<br>Sergey Levine的学生）</p>
+            <p style="margin: 0 0 15px 0;"><b>代表产品:</b> π0、π0.5（通用机器人策略模型）；VLAs（视觉-语言-动作模<br>型）用于机器人控制，支持灵巧操作，强调高变形任务（如处<br>理柔软织物、洗衣服、清理桌子）</p>
+            <hr style="margin: 15px 0;">
+            <p style="margin: 0;"><b>公司简要介绍:</b></p>
+            <p style="margin: 0; font-style: italic;">一家专注于开发具身人工智能以驱动机器人学习和执行复<br>杂任务的初创公司，旨在使机器人能够在现实世界中进行<br>泛化操作。</p>
+        </div>
+        
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_49c1637c00c84439efbd5e607bfc8098 = L.marker(
+                [29.88, 121.64],
+                {}
+            ).addTo(marker_cluster_10ea701e6bed96c037c494563bca5929);
+        
+    
+            var icon_0b35a4f57f18e391b27fe227a533eb29 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "robot", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_49c1637c00c84439efbd5e607bfc8098.setIcon(icon_0b35a4f57f18e391b27fe227a533eb29);
+        
+    
+        var popup_9440192ea3ea03af3818b57792912f35 = L.popup({"maxWidth": 200});
+
+        
+            
+                var i_frame_6f83fa11dc78f305a1e53a900b196df6 = $(`<iframe src="data:text/html;charset=utf-8;base64,CiAgICAKICAgICAgICA8ZGl2IHN0eWxlPSJ0ZXh0LWFsaWduOiBjZW50ZXI7IGZvbnQtZmFtaWx5OiAnSGVsdmV0aWNhIE5ldWUnLCBBcmlhbCwgc2Fucy1zZXJpZjsiPgogICAgICAgICAgICA8aDQgc3R5bGU9Im1hcmdpbi1ib3R0b206IDE1cHg7IGZvbnQtc2l6ZTogMTZweDsiPlBORGJvdGljczwvaDQ+CiAgICAgICAgICAgIDxhIGhyZWY9Imh0dHBzOi8vcG5kYm90aWNzLmNvbS8iIHRhcmdldD0iX2JsYW5rIiBzdHlsZT0iCiAgICAgICAgICAgICAgICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7CiAgICAgICAgICAgICAgICBwYWRkaW5nOiA4cHggMThweDsKICAgICAgICAgICAgICAgIGZvbnQtc2l6ZTogMTRweDsKICAgICAgICAgICAgICAgIGZvbnQtd2VpZ2h0OiBib2xkOwogICAgICAgICAgICAgICAgY29sb3I6ICNmZmZmZmY7CiAgICAgICAgICAgICAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjMDA3QkZGOwogICAgICAgICAgICAgICAgYm9yZGVyOiBub25lOwogICAgICAgICAgICAgICAgYm9yZGVyLXJhZGl1czogNXB4OwogICAgICAgICAgICAgICAgdGV4dC1kZWNvcmF0aW9uOiBub25lOwogICAgICAgICAgICAgICAgYm94LXNoYWRvdzogMCAycHggNHB4IHJnYmEoMCwwLDAsMC4yKTsKICAgICAgICAgICAgIj7orr/pl67lrpjnvZE8L2E+CiAgICAgICAgPC9kaXY+CiAgICAgICAg" width="200" style="border:none !important;" height="80"></iframe>`)[0];
+                popup_9440192ea3ea03af3818b57792912f35.setContent(i_frame_6f83fa11dc78f305a1e53a900b196df6);
+            
+        
+
+        marker_49c1637c00c84439efbd5e607bfc8098.bindPopup(popup_9440192ea3ea03af3818b57792912f35)
+        ;
+
+        
+    
+    
+            marker_49c1637c00c84439efbd5e607bfc8098.bindTooltip(
+                `<div>
+                     
+        <div style="font-size: 16px; font-family: 'Helvetica Neue', Arial, sans-serif; padding: 5px; max-width: 600px;">
+            <p style="margin: 0 0 15px 0;"><b>公司名:</b> PNDbotics</p>
+            <p style="margin: 0 0 15px 0;"><b>地区:</b> 中国浙江</p>
+            <p style="margin: 0 0 15px 0;"><b>分类:</b> 机器人开发平台</p>
+            <p style="margin: 0 0 15px 0;"><b>成立时间:</b> 2023年</p>
+            <p style="margin: 0 0 15px 0;"><b>创始人/团队:</b> 韩立华</p>
+            <p style="margin: 0 0 15px 0;"><b>代表产品:</b> 人形机器人 “Adam” 系列</p>
+            <hr style="margin: 15px 0;">
+            <p style="margin: 0;"><b>公司简要介绍:</b></p>
+            <p style="margin: 0; font-style: italic;">构建端到端人形机器人平台，简化开发流程</p>
+        </div>
+        
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_fb7af3df4f9ffc02447169ace5d80d4b = L.marker(
+                [49.27, -123.1],
+                {}
+            ).addTo(marker_cluster_10ea701e6bed96c037c494563bca5929);
+        
+    
+            var icon_c762e7ee23bc3103e9a5d901f84423d9 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "robot", "iconColor": "white", "markerColor": "purple", "prefix": "fa"}
+            );
+            marker_fb7af3df4f9ffc02447169ace5d80d4b.setIcon(icon_c762e7ee23bc3103e9a5d901f84423d9);
+        
+    
+        var popup_e1914d804441cd193fb1f6fd7e5aabc0 = L.popup({"maxWidth": 200});
+
+        
+            
+                var i_frame_e2134e52627cff7456943fa1e2ef152c = $(`<iframe src="data:text/html;charset=utf-8;base64,CiAgICAKICAgICAgICA8ZGl2IHN0eWxlPSJ0ZXh0LWFsaWduOiBjZW50ZXI7IGZvbnQtZmFtaWx5OiAnSGVsdmV0aWNhIE5ldWUnLCBBcmlhbCwgc2Fucy1zZXJpZjsiPgogICAgICAgICAgICA8aDQgc3R5bGU9Im1hcmdpbi1ib3R0b206IDE1cHg7IGZvbnQtc2l6ZTogMTZweDsiPlNhbmN0dWFyeSBBSTwvaDQ+CiAgICAgICAgICAgIDxhIGhyZWY9Imh0dHBzOi8vc2FuY3R1YXJ5LmFpIiB0YXJnZXQ9Il9ibGFuayIgc3R5bGU9IgogICAgICAgICAgICAgICAgZGlzcGxheTogaW5saW5lLWJsb2NrOwogICAgICAgICAgICAgICAgcGFkZGluZzogOHB4IDE4cHg7CiAgICAgICAgICAgICAgICBmb250LXNpemU6IDE0cHg7CiAgICAgICAgICAgICAgICBmb250LXdlaWdodDogYm9sZDsKICAgICAgICAgICAgICAgIGNvbG9yOiAjZmZmZmZmOwogICAgICAgICAgICAgICAgYmFja2dyb3VuZC1jb2xvcjogIzAwN0JGRjsKICAgICAgICAgICAgICAgIGJvcmRlcjogbm9uZTsKICAgICAgICAgICAgICAgIGJvcmRlci1yYWRpdXM6IDVweDsKICAgICAgICAgICAgICAgIHRleHQtZGVjb3JhdGlvbjogbm9uZTsKICAgICAgICAgICAgICAgIGJveC1zaGFkb3c6IDAgMnB4IDRweCByZ2JhKDAsMCwwLDAuMik7CiAgICAgICAgICAgICI+6K6/6Zeu5a6Y572RPC9hPgogICAgICAgIDwvZGl2PgogICAgICAgIA==" width="200" style="border:none !important;" height="80"></iframe>`)[0];
+                popup_e1914d804441cd193fb1f6fd7e5aabc0.setContent(i_frame_e2134e52627cff7456943fa1e2ef152c);
+            
+        
+
+        marker_fb7af3df4f9ffc02447169ace5d80d4b.bindPopup(popup_e1914d804441cd193fb1f6fd7e5aabc0)
+        ;
+
+        
+    
+    
+            marker_fb7af3df4f9ffc02447169ace5d80d4b.bindTooltip(
+                `<div>
+                     
+        <div style="font-size: 16px; font-family: 'Helvetica Neue', Arial, sans-serif; padding: 5px; max-width: 600px;">
+            <p style="margin: 0 0 15px 0;"><b>公司名:</b> Sanctuary AI</p>
+            <p style="margin: 0 0 15px 0;"><b>地区:</b> 加拿大</p>
+            <p style="margin: 0 0 15px 0;"><b>分类:</b> 通用服务机器人</p>
+            <p style="margin: 0 0 15px 0;"><b>成立时间:</b> 2018年</p>
+            <p style="margin: 0 0 15px 0;"><b>创始人/团队:</b> Geordie Rose（D-Wave创始人）</p>
+            <p style="margin: 0 0 15px 0;"><b>代表产品:</b> Phoenix人形机器人</p>
+            <hr style="margin: 15px 0;">
+            <p style="margin: 0;"><b>公司简要介绍:</b></p>
+            <p style="margin: 0; font-style: italic;">开发具备人类级灵巧操作能力的通用人形机器人</p>
+        </div>
+        
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_88ea9e71cc0d98c12b8ac3ecaa04e8ec = L.marker(
+                [34.15, -118.15],
+                {}
+            ).addTo(marker_cluster_10ea701e6bed96c037c494563bca5929);
+        
+    
+            var icon_e599f5150e6ca7f1bec6c83020f2c6a3 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "robot", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_88ea9e71cc0d98c12b8ac3ecaa04e8ec.setIcon(icon_e599f5150e6ca7f1bec6c83020f2c6a3);
+        
+    
+        var popup_6bb4ee469157af882a26c14cc2aabb68 = L.popup({"maxWidth": 200});
+
+        
+            
+                var i_frame_cb996d1f0ff8c35dcca5cf681d2901df = $(`<iframe src="data:text/html;charset=utf-8;base64,CiAgICAKICAgICAgICA8ZGl2IHN0eWxlPSJ0ZXh0LWFsaWduOiBjZW50ZXI7IGZvbnQtZmFtaWx5OiAnSGVsdmV0aWNhIE5ldWUnLCBBcmlhbCwgc2Fucy1zZXJpZjsiPgogICAgICAgICAgICA8aDQgc3R5bGU9Im1hcmdpbi1ib3R0b206IDE1cHg7IGZvbnQtc2l6ZTogMTZweDsiPlNraWxkIEFJPC9oND4KICAgICAgICAgICAgPGEgaHJlZj0iaHR0cHM6Ly9za2lsZC5haSIgdGFyZ2V0PSJfYmxhbmsiIHN0eWxlPSIKICAgICAgICAgICAgICAgIGRpc3BsYXk6IGlubGluZS1ibG9jazsKICAgICAgICAgICAgICAgIHBhZGRpbmc6IDhweCAxOHB4OwogICAgICAgICAgICAgICAgZm9udC1zaXplOiAxNHB4OwogICAgICAgICAgICAgICAgZm9udC13ZWlnaHQ6IGJvbGQ7CiAgICAgICAgICAgICAgICBjb2xvcjogI2ZmZmZmZjsKICAgICAgICAgICAgICAgIGJhY2tncm91bmQtY29sb3I6ICMwMDdCRkY7CiAgICAgICAgICAgICAgICBib3JkZXI6IG5vbmU7CiAgICAgICAgICAgICAgICBib3JkZXItcmFkaXVzOiA1cHg7CiAgICAgICAgICAgICAgICB0ZXh0LWRlY29yYXRpb246IG5vbmU7CiAgICAgICAgICAgICAgICBib3gtc2hhZG93OiAwIDJweCA0cHggcmdiYSgwLDAsMCwwLjIpOwogICAgICAgICAgICAiPuiuv+mXruWumOe9kTwvYT4KICAgICAgICA8L2Rpdj4KICAgICAgICA=" width="200" style="border:none !important;" height="80"></iframe>`)[0];
+                popup_6bb4ee469157af882a26c14cc2aabb68.setContent(i_frame_cb996d1f0ff8c35dcca5cf681d2901df);
+            
+        
+
+        marker_88ea9e71cc0d98c12b8ac3ecaa04e8ec.bindPopup(popup_6bb4ee469157af882a26c14cc2aabb68)
+        ;
+
+        
+    
+    
+            marker_88ea9e71cc0d98c12b8ac3ecaa04e8ec.bindTooltip(
+                `<div>
+                     
+        <div style="font-size: 16px; font-family: 'Helvetica Neue', Arial, sans-serif; padding: 5px; max-width: 600px;">
+            <p style="margin: 0 0 15px 0;"><b>公司名:</b> Skild AI</p>
+            <p style="margin: 0 0 15px 0;"><b>地区:</b> 美国宾州</p>
+            <p style="margin: 0 0 15px 0;"><b>分类:</b> 具身智能, 通用人工智能</p>
+            <p style="margin: 0 0 15px 0;"><b>成立时间:</b> 2023年</p>
+            <p style="margin: 0 0 15px 0;"><b>创始人/团队:</b> Abhinav Gupta, Deepak Pathak（前CMU教授）</p>
+            <p style="margin: 0 0 15px 0;"><b>代表产品:</b> Skild<br>Brain（机器人基础模型，支持“一脑多机体”通用控制，如抓<br>取鸡蛋、巡视、导航）</p>
+            <hr style="margin: 15px 0;">
+            <p style="margin: 0;"><b>公司简要介绍:</b></p>
+            <p style="margin: 0; font-style: italic;">开发omni-bodied<br>intelligence（全形态智能），即一个单一的<br>“大脑”，能够适配任何任务、任何机器人，不受机器人类型<br>或任务范围限制，最终迈向扎根现实世界的人工通用智能（<br>AGI）</p>
+        </div>
+        
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_5d8add29bd975f855f40afbd56f29d0f = L.marker(
+                [30.23, -97.62],
+                {}
+            ).addTo(marker_cluster_10ea701e6bed96c037c494563bca5929);
+        
+    
+            var icon_7a99762914336ed904efacf091b40b38 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "robot", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_5d8add29bd975f855f40afbd56f29d0f.setIcon(icon_7a99762914336ed904efacf091b40b38);
+        
+    
+        var popup_de4faca9fd4bc309c59b2f82a46c00c1 = L.popup({"maxWidth": 200});
+
+        
+            
+                var i_frame_44c3f38f95c79fd28278f440c0c4afc2 = $(`<iframe src="data:text/html;charset=utf-8;base64,CiAgICAKICAgICAgICA8ZGl2IHN0eWxlPSJ0ZXh0LWFsaWduOiBjZW50ZXI7IGZvbnQtZmFtaWx5OiAnSGVsdmV0aWNhIE5ldWUnLCBBcmlhbCwgc2Fucy1zZXJpZjsiPgogICAgICAgICAgICA8aDQgc3R5bGU9Im1hcmdpbi1ib3R0b206IDE1cHg7IGZvbnQtc2l6ZTogMTZweDsiPlRlc2xhIE9wdGltdXM8L2g0PgogICAgICAgICAgICA8YSBocmVmPSJodHRwczovL3d3dy50ZXNsYS5jb20iIHRhcmdldD0iX2JsYW5rIiBzdHlsZT0iCiAgICAgICAgICAgICAgICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7CiAgICAgICAgICAgICAgICBwYWRkaW5nOiA4cHggMThweDsKICAgICAgICAgICAgICAgIGZvbnQtc2l6ZTogMTRweDsKICAgICAgICAgICAgICAgIGZvbnQtd2VpZ2h0OiBib2xkOwogICAgICAgICAgICAgICAgY29sb3I6ICNmZmZmZmY7CiAgICAgICAgICAgICAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjMDA3QkZGOwogICAgICAgICAgICAgICAgYm9yZGVyOiBub25lOwogICAgICAgICAgICAgICAgYm9yZGVyLXJhZGl1czogNXB4OwogICAgICAgICAgICAgICAgdGV4dC1kZWNvcmF0aW9uOiBub25lOwogICAgICAgICAgICAgICAgYm94LXNoYWRvdzogMCAycHggNHB4IHJnYmEoMCwwLDAsMC4yKTsKICAgICAgICAgICAgIj7orr/pl67lrpjnvZE8L2E+CiAgICAgICAgPC9kaXY+CiAgICAgICAg" width="200" style="border:none !important;" height="80"></iframe>`)[0];
+                popup_de4faca9fd4bc309c59b2f82a46c00c1.setContent(i_frame_44c3f38f95c79fd28278f440c0c4afc2);
+            
+        
+
+        marker_5d8add29bd975f855f40afbd56f29d0f.bindPopup(popup_de4faca9fd4bc309c59b2f82a46c00c1)
+        ;
+
+        
+    
+    
+            marker_5d8add29bd975f855f40afbd56f29d0f.bindTooltip(
+                `<div>
+                     
+        <div style="font-size: 16px; font-family: 'Helvetica Neue', Arial, sans-serif; padding: 5px; max-width: 600px;">
+            <p style="margin: 0 0 15px 0;"><b>公司名:</b> Tesla Optimus</p>
+            <p style="margin: 0 0 15px 0;"><b>地区:</b> 美国德州</p>
+            <p style="margin: 0 0 15px 0;"><b>分类:</b> 人形机器人</p>
+            <p style="margin: 0 0 15px 0;"><b>成立时间:</b> 2021年 (项目启动)</p>
+            <p style="margin: 0 0 15px 0;"><b>创始人/团队:</b> Elon Musk / 特斯拉Optimus团队负责人Ashok<br>Elluswamy（AI软件副总裁，原Optimus项目主管Milan<br>Kovac于2025年6月离职）；核心成员包括Ashish<br>Kumar（机器人学习专家）、Julian<br>Ibarz（前google）、Russell Mendonca（cmu<br>deepak的博士）</p>
+            <p style="margin: 0 0 15px 0;"><b>代表产品:</b> Optimus (Gen 1, Gen 2)</p>
+            <hr style="margin: 15px 0;">
+            <p style="margin: 0;"><b>公司简要介绍:</b></p>
+            <p style="margin: 0; font-style: italic;">特斯拉旗下的人形机器人项目，旨在开发能够执行危险、重<br>复或枯燥任务的通用机器人，以替代人类劳动力。</p>
+        </div>
+        
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_d2f34649e261a470a3012d8b0c112b03 = L.marker(
+                [37.43, -122.17],
+                {}
+            ).addTo(marker_cluster_10ea701e6bed96c037c494563bca5929);
+        
+    
+            var icon_961affc3ced57ab709a1e41763e907ff = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "robot", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_d2f34649e261a470a3012d8b0c112b03.setIcon(icon_961affc3ced57ab709a1e41763e907ff);
+        
+    
+        var popup_118202e5242e756810ff82089ce137e3 = L.popup({"maxWidth": 200});
+
+        
+            
+                var i_frame_f2d63fafb3fe26e533480ee44d94c3f0 = $(`<iframe src="data:text/html;charset=utf-8;base64,CiAgICAKICAgICAgICA8ZGl2IHN0eWxlPSJ0ZXh0LWFsaWduOiBjZW50ZXI7IGZvbnQtZmFtaWx5OiAnSGVsdmV0aWNhIE5ldWUnLCBBcmlhbCwgc2Fucy1zZXJpZjsiPgogICAgICAgICAgICA8aDQgc3R5bGU9Im1hcmdpbi1ib3R0b206IDE1cHg7IGZvbnQtc2l6ZTogMTZweDsiPldvcmxkIExhYnM8L2g0PgogICAgICAgICAgICA8YSBocmVmPSJodHRwczovL3d3dy53b3JsZGxhYnMuYWkvIiB0YXJnZXQ9Il9ibGFuayIgc3R5bGU9IgogICAgICAgICAgICAgICAgZGlzcGxheTogaW5saW5lLWJsb2NrOwogICAgICAgICAgICAgICAgcGFkZGluZzogOHB4IDE4cHg7CiAgICAgICAgICAgICAgICBmb250LXNpemU6IDE0cHg7CiAgICAgICAgICAgICAgICBmb250LXdlaWdodDogYm9sZDsKICAgICAgICAgICAgICAgIGNvbG9yOiAjZmZmZmZmOwogICAgICAgICAgICAgICAgYmFja2dyb3VuZC1jb2xvcjogIzAwN0JGRjsKICAgICAgICAgICAgICAgIGJvcmRlcjogbm9uZTsKICAgICAgICAgICAgICAgIGJvcmRlci1yYWRpdXM6IDVweDsKICAgICAgICAgICAgICAgIHRleHQtZGVjb3JhdGlvbjogbm9uZTsKICAgICAgICAgICAgICAgIGJveC1zaGFkb3c6IDAgMnB4IDRweCByZ2JhKDAsMCwwLDAuMik7CiAgICAgICAgICAgICI+6K6/6Zeu5a6Y572RPC9hPgogICAgICAgIDwvZGl2PgogICAgICAgIA==" width="200" style="border:none !important;" height="80"></iframe>`)[0];
+                popup_118202e5242e756810ff82089ce137e3.setContent(i_frame_f2d63fafb3fe26e533480ee44d94c3f0);
+            
+        
+
+        marker_d2f34649e261a470a3012d8b0c112b03.bindPopup(popup_118202e5242e756810ff82089ce137e3)
+        ;
+
+        
+    
+    
+            marker_d2f34649e261a470a3012d8b0c112b03.bindTooltip(
+                `<div>
+                     
+        <div style="font-size: 16px; font-family: 'Helvetica Neue', Arial, sans-serif; padding: 5px; max-width: 600px;">
+            <p style="margin: 0 0 15px 0;"><b>公司名:</b> World Labs</p>
+            <p style="margin: 0 0 15px 0;"><b>地区:</b> 美国</p>
+            <p style="margin: 0 0 15px 0;"><b>分类:</b> 机器人AI</p>
+            <p style="margin: 0 0 15px 0;"><b>成立时间:</b> 2024年</p>
+            <p style="margin: 0 0 15px 0;"><b>创始人/团队:</b> 李飞飞</p>
+            <p style="margin: 0 0 15px 0;"><b>代表产品:</b> 空间智能</p>
+            <hr style="margin: 15px 0;">
+            <p style="margin: 0;"><b>公司简要介绍:</b></p>
+            <p style="margin: 0; font-style: italic;">由李飞飞创办，专注于“空间智能”与具身智能研究</p>
+        </div>
+        
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_4d8edfe71578ab04714cc739c3d2bef2 = L.marker(
+                [22.74, 113.96],
+                {}
+            ).addTo(marker_cluster_10ea701e6bed96c037c494563bca5929);
+        
+    
+            var icon_accc2ecf503ecbbcab5412cf86acb6b6 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "robot", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_4d8edfe71578ab04714cc739c3d2bef2.setIcon(icon_accc2ecf503ecbbcab5412cf86acb6b6);
+        
+    
+        var popup_9b86420b6ebea6edde7bceed72494270 = L.popup({"maxWidth": 200});
+
+        
+            
+                var i_frame_2bceace5bc8806196f40fe218f1c771c = $(`<iframe src="data:text/html;charset=utf-8;base64,CiAgICAKICAgICAgICA8ZGl2IHN0eWxlPSJ0ZXh0LWFsaWduOiBjZW50ZXI7IGZvbnQtZmFtaWx5OiAnSGVsdmV0aWNhIE5ldWUnLCBBcmlhbCwgc2Fucy1zZXJpZjsiPgogICAgICAgICAgICA8aDQgc3R5bGU9Im1hcmdpbi1ib3R0b206IDE1cHg7IGZvbnQtc2l6ZTogMTZweDsiPuiJvuasp+aZuuiDvTwvaDQ+CiAgICAgICAgICAgIDxhIGhyZWY9Imh0dHBzOi8vaW8tYWkudGVjaC8iIHRhcmdldD0iX2JsYW5rIiBzdHlsZT0iCiAgICAgICAgICAgICAgICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7CiAgICAgICAgICAgICAgICBwYWRkaW5nOiA4cHggMThweDsKICAgICAgICAgICAgICAgIGZvbnQtc2l6ZTogMTRweDsKICAgICAgICAgICAgICAgIGZvbnQtd2VpZ2h0OiBib2xkOwogICAgICAgICAgICAgICAgY29sb3I6ICNmZmZmZmY7CiAgICAgICAgICAgICAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjMDA3QkZGOwogICAgICAgICAgICAgICAgYm9yZGVyOiBub25lOwogICAgICAgICAgICAgICAgYm9yZGVyLXJhZGl1czogNXB4OwogICAgICAgICAgICAgICAgdGV4dC1kZWNvcmF0aW9uOiBub25lOwogICAgICAgICAgICAgICAgYm94LXNoYWRvdzogMCAycHggNHB4IHJnYmEoMCwwLDAsMC4yKTsKICAgICAgICAgICAgIj7orr/pl67lrpjnvZE8L2E+CiAgICAgICAgPC9kaXY+CiAgICAgICAg" width="200" style="border:none !important;" height="80"></iframe>`)[0];
+                popup_9b86420b6ebea6edde7bceed72494270.setContent(i_frame_2bceace5bc8806196f40fe218f1c771c);
+            
+        
+
+        marker_4d8edfe71578ab04714cc739c3d2bef2.bindPopup(popup_9b86420b6ebea6edde7bceed72494270)
+        ;
+
+        
+    
+    
+            marker_4d8edfe71578ab04714cc739c3d2bef2.bindTooltip(
+                `<div>
+                     
+        <div style="font-size: 16px; font-family: 'Helvetica Neue', Arial, sans-serif; padding: 5px; max-width: 600px;">
+            <p style="margin: 0 0 15px 0;"><b>公司名:</b> 艾欧智能</p>
+            <p style="margin: 0 0 15px 0;"><b>地区:</b> 中国北京</p>
+            <p style="margin: 0 0 15px 0;"><b>分类:</b> 数据与解决方案</p>
+            <p style="margin: 0 0 15px 0;"><b>成立时间:</b> 2023年</p>
+            <p style="margin: 0 0 15px 0;"><b>创始人/团队:</b> 陈相羽</p>
+            <p style="margin: 0 0 15px 0;"><b>代表产品:</b> TeleXperience II遥操作产品，数采头盔等</p>
+            <hr style="margin: 15px 0;">
+            <p style="margin: 0;"><b>公司简要介绍:</b></p>
+            <p style="margin: 0; font-style: italic;">提供具身智能基础数据，创始团队来自腾讯、鹏行智能等</p>
+        </div>
+        
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_37097a11a8ed0c2a52b74c1d64e677bf = L.marker(
+                [31.0, 121.37],
+                {}
+            ).addTo(marker_cluster_10ea701e6bed96c037c494563bca5929);
+        
+    
+            var icon_c4647b577e540dfba8b27c0e0585e6a2 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "robot", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_37097a11a8ed0c2a52b74c1d64e677bf.setIcon(icon_c4647b577e540dfba8b27c0e0585e6a2);
+        
+    
+        var popup_19a76a3c0f0a2c72ad456f80a3c6cd6d = L.popup({"maxWidth": 200});
+
+        
+            
+                var i_frame_4afede096ac069e26517daa43d84823c = $(`<iframe src="data:text/html;charset=utf-8;base64,CiAgICAKICAgICAgICA8ZGl2IHN0eWxlPSJ0ZXh0LWFsaWduOiBjZW50ZXI7IGZvbnQtZmFtaWx5OiAnSGVsdmV0aWNhIE5ldWUnLCBBcmlhbCwgc2Fucy1zZXJpZjsiPgogICAgICAgICAgICA8aDQgc3R5bGU9Im1hcmdpbi1ib3R0b206IDE1cHg7IGZvbnQtc2l6ZTogMTZweDsiPui+vumXvOacuuWZqOS6ujwvaDQ+CiAgICAgICAgICAgIDxhIGhyZWY9Imh0dHBzOi8vd3d3LmNsb3VkbWluZHMuY29tIiB0YXJnZXQ9Il9ibGFuayIgc3R5bGU9IgogICAgICAgICAgICAgICAgZGlzcGxheTogaW5saW5lLWJsb2NrOwogICAgICAgICAgICAgICAgcGFkZGluZzogOHB4IDE4cHg7CiAgICAgICAgICAgICAgICBmb250LXNpemU6IDE0cHg7CiAgICAgICAgICAgICAgICBmb250LXdlaWdodDogYm9sZDsKICAgICAgICAgICAgICAgIGNvbG9yOiAjZmZmZmZmOwogICAgICAgICAgICAgICAgYmFja2dyb3VuZC1jb2xvcjogIzAwN0JGRjsKICAgICAgICAgICAgICAgIGJvcmRlcjogbm9uZTsKICAgICAgICAgICAgICAgIGJvcmRlci1yYWRpdXM6IDVweDsKICAgICAgICAgICAgICAgIHRleHQtZGVjb3JhdGlvbjogbm9uZTsKICAgICAgICAgICAgICAgIGJveC1zaGFkb3c6IDAgMnB4IDRweCByZ2JhKDAsMCwwLDAuMik7CiAgICAgICAgICAgICI+6K6/6Zeu5a6Y572RPC9hPgogICAgICAgIDwvZGl2PgogICAgICAgIA==" width="200" style="border:none !important;" height="80"></iframe>`)[0];
+                popup_19a76a3c0f0a2c72ad456f80a3c6cd6d.setContent(i_frame_4afede096ac069e26517daa43d84823c);
+            
+        
+
+        marker_37097a11a8ed0c2a52b74c1d64e677bf.bindPopup(popup_19a76a3c0f0a2c72ad456f80a3c6cd6d)
+        ;
+
+        
+    
+    
+            marker_37097a11a8ed0c2a52b74c1d64e677bf.bindTooltip(
+                `<div>
+                     
+        <div style="font-size: 16px; font-family: 'Helvetica Neue', Arial, sans-serif; padding: 5px; max-width: 600px;">
+            <p style="margin: 0 0 15px 0;"><b>公司名:</b> 达闼机器人</p>
+            <p style="margin: 0 0 15px 0;"><b>地区:</b> 中国上海</p>
+            <p style="margin: 0 0 15px 0;"><b>分类:</b> 通用服务机器人</p>
+            <p style="margin: 0 0 15px 0;"><b>成立时间:</b> 2015年</p>
+            <p style="margin: 0 0 15px 0;"><b>创始人/团队:</b> 黄晓庆（前中国移动研究院院长）</p>
+            <p style="margin: 0 0 15px 0;"><b>代表产品:</b> GingerXR人形机器人</p>
+            <hr style="margin: 15px 0;">
+            <p style="margin: 0;"><b>公司简要介绍:</b></p>
+            <p style="margin: 0; font-style: italic;">云端机器人领导者，覆盖清洁、巡检、人形机器人</p>
+        </div>
+        
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_c76c20cc66ae998ee6860529017e2bd6 = L.marker(
+                [31.03, 121.47],
+                {}
+            ).addTo(marker_cluster_10ea701e6bed96c037c494563bca5929);
+        
+    
+            var icon_799526a464b1359961174165e1102778 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "robot", "iconColor": "white", "markerColor": "gray", "prefix": "fa"}
+            );
+            marker_c76c20cc66ae998ee6860529017e2bd6.setIcon(icon_799526a464b1359961174165e1102778);
+        
+    
+        var popup_0c01602919e9fe5555c791f65a5350ea = L.popup({"maxWidth": 200});
+
+        
+            
+                var i_frame_24f959826d34ee76c972e9fb0ba692ae = $(`<iframe src="data:text/html;charset=utf-8;base64,CiAgICAKICAgICAgICA8ZGl2IHN0eWxlPSJ0ZXh0LWFsaWduOiBjZW50ZXI7IGZvbnQtZmFtaWx5OiAnSGVsdmV0aWNhIE5ldWUnLCBBcmlhbCwgc2Fucy1zZXJpZjsiPgogICAgICAgICAgICA8aDQgc3R5bGU9Im1hcmdpbi1ib3R0b206IDE1cHg7IGZvbnQtc2l6ZTogMTZweDsiPumdnuWkleacuuWZqOS6ujwvaDQ+CiAgICAgICAgICAgIDxhIGhyZWY9Imh0dHBzOi8vd3d3LmZsZXhpdi5jb20iIHRhcmdldD0iX2JsYW5rIiBzdHlsZT0iCiAgICAgICAgICAgICAgICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7CiAgICAgICAgICAgICAgICBwYWRkaW5nOiA4cHggMThweDsKICAgICAgICAgICAgICAgIGZvbnQtc2l6ZTogMTRweDsKICAgICAgICAgICAgICAgIGZvbnQtd2VpZ2h0OiBib2xkOwogICAgICAgICAgICAgICAgY29sb3I6ICNmZmZmZmY7CiAgICAgICAgICAgICAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjMDA3QkZGOwogICAgICAgICAgICAgICAgYm9yZGVyOiBub25lOwogICAgICAgICAgICAgICAgYm9yZGVyLXJhZGl1czogNXB4OwogICAgICAgICAgICAgICAgdGV4dC1kZWNvcmF0aW9uOiBub25lOwogICAgICAgICAgICAgICAgYm94LXNoYWRvdzogMCAycHggNHB4IHJnYmEoMCwwLDAsMC4yKTsKICAgICAgICAgICAgIj7orr/pl67lrpjnvZE8L2E+CiAgICAgICAgPC9kaXY+CiAgICAgICAg" width="200" style="border:none !important;" height="80"></iframe>`)[0];
+                popup_0c01602919e9fe5555c791f65a5350ea.setContent(i_frame_24f959826d34ee76c972e9fb0ba692ae);
+            
+        
+
+        marker_c76c20cc66ae998ee6860529017e2bd6.bindPopup(popup_0c01602919e9fe5555c791f65a5350ea)
+        ;
+
+        
+    
+    
+            marker_c76c20cc66ae998ee6860529017e2bd6.bindTooltip(
+                `<div>
+                     
+        <div style="font-size: 16px; font-family: 'Helvetica Neue', Arial, sans-serif; padding: 5px; max-width: 600px;">
+            <p style="margin: 0 0 15px 0;"><b>公司名:</b> 非夕机器人</p>
+            <p style="margin: 0 0 15px 0;"><b>地区:</b> 上海</p>
+            <p style="margin: 0 0 15px 0;"><b>分类:</b> 智能机器人/自适应机器人</p>
+            <p style="margin: 0 0 15px 0;"><b>成立时间:</b> 2016年</p>
+            <p style="margin: 0 0 15px 0;"><b>创始人/团队:</b> 王世全（CEO）、叶熙阳、钟书耘、卢策吾等，核心团队均来自<br>斯坦福大学机器人与人工智能实验室</p>
+            <p style="margin: 0 0 15px 0;"><b>代表产品:</b> 拂晓（Rizon）系列自适应机器人、穹知AI系统、力控夹爪</p>
+            <hr style="margin: 15px 0;">
+            <p style="margin: 0;"><b>公司简要介绍:</b></p>
+            <p style="margin: 0; font-style: italic;">全球技术领先的通用智能机器人公司，研发集工业级力控、<br>计算机视觉和人工智能技术于一体的自适应机器人，为制<br>造业、食品、医疗等行业提供整体解决方案。</p>
+        </div>
+        
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_17106b59aaf7155adf95d7e27e5ed8ab = L.marker(
+                [31.13, 121.61],
+                {}
+            ).addTo(marker_cluster_10ea701e6bed96c037c494563bca5929);
+        
+    
+            var icon_d8933ddb177d75a54ab6770d7b362c81 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "robot", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_17106b59aaf7155adf95d7e27e5ed8ab.setIcon(icon_d8933ddb177d75a54ab6770d7b362c81);
+        
+    
+        var popup_457ac3905a2bc46429986d2737b012f7 = L.popup({"maxWidth": 200});
+
+        
+            
+                var i_frame_697e84613bfd7bf1b30a95a843fa2949 = $(`<iframe src="data:text/html;charset=utf-8;base64,CiAgICAKICAgICAgICA8ZGl2IHN0eWxlPSJ0ZXh0LWFsaWduOiBjZW50ZXI7IGZvbnQtZmFtaWx5OiAnSGVsdmV0aWNhIE5ldWUnLCBBcmlhbCwgc2Fucy1zZXJpZjsiPgogICAgICAgICAgICA8aDQgc3R5bGU9Im1hcmdpbi1ib3R0b206IDE1cHg7IGZvbnQtc2l6ZTogMTZweDsiPuWChemHjOWPtuacuuWZqOS6ujwvaDQ+CiAgICAgICAgICAgIDxhIGhyZWY9Imh0dHBzOi8vd3d3LmZmdGFpLmNuLyIgdGFyZ2V0PSJfYmxhbmsiIHN0eWxlPSIKICAgICAgICAgICAgICAgIGRpc3BsYXk6IGlubGluZS1ibG9jazsKICAgICAgICAgICAgICAgIHBhZGRpbmc6IDhweCAxOHB4OwogICAgICAgICAgICAgICAgZm9udC1zaXplOiAxNHB4OwogICAgICAgICAgICAgICAgZm9udC13ZWlnaHQ6IGJvbGQ7CiAgICAgICAgICAgICAgICBjb2xvcjogI2ZmZmZmZjsKICAgICAgICAgICAgICAgIGJhY2tncm91bmQtY29sb3I6ICMwMDdCRkY7CiAgICAgICAgICAgICAgICBib3JkZXI6IG5vbmU7CiAgICAgICAgICAgICAgICBib3JkZXItcmFkaXVzOiA1cHg7CiAgICAgICAgICAgICAgICB0ZXh0LWRlY29yYXRpb246IG5vbmU7CiAgICAgICAgICAgICAgICBib3gtc2hhZG93OiAwIDJweCA0cHggcmdiYSgwLDAsMCwwLjIpOwogICAgICAgICAgICAiPuiuv+mXruWumOe9kTwvYT4KICAgICAgICA8L2Rpdj4KICAgICAgICA=" width="200" style="border:none !important;" height="80"></iframe>`)[0];
+                popup_457ac3905a2bc46429986d2737b012f7.setContent(i_frame_697e84613bfd7bf1b30a95a843fa2949);
+            
+        
+
+        marker_17106b59aaf7155adf95d7e27e5ed8ab.bindPopup(popup_457ac3905a2bc46429986d2737b012f7)
+        ;
+
+        
+    
+    
+            marker_17106b59aaf7155adf95d7e27e5ed8ab.bindTooltip(
+                `<div>
+                     
+        <div style="font-size: 16px; font-family: 'Helvetica Neue', Arial, sans-serif; padding: 5px; max-width: 600px;">
+            <p style="margin: 0 0 15px 0;"><b>公司名:</b> 傅里叶机器人</p>
+            <p style="margin: 0 0 15px 0;"><b>地区:</b> 中国上海</p>
+            <p style="margin: 0 0 15px 0;"><b>分类:</b> 医疗机器人</p>
+            <p style="margin: 0 0 15px 0;"><b>成立时间:</b> 2015年</p>
+            <p style="margin: 0 0 15px 0;"><b>创始人/团队:</b> 顾捷</p>
+            <p style="margin: 0 0 15px 0;"><b>代表产品:</b> GR系列</p>
+            <hr style="margin: 15px 0;">
+            <p style="margin: 0;"><b>公司简要介绍:</b></p>
+            <p style="margin: 0; font-style: italic;">专注康复医疗，推出GR系列康复机器人</p>
+        </div>
+        
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_4fcf6e82904b8e10ccbf498fafe3d90f = L.marker(
+                [40.04, 116.36],
+                {}
+            ).addTo(marker_cluster_10ea701e6bed96c037c494563bca5929);
+        
+    
+            var icon_fef3cf752e97fea25c101dd016143f97 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "robot", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_4fcf6e82904b8e10ccbf498fafe3d90f.setIcon(icon_fef3cf752e97fea25c101dd016143f97);
+        
+    
+        var popup_51406fdb6dc6c0930db5a85b012c7081 = L.popup({"maxWidth": 200});
+
+        
+            
+                var i_frame_4f176fbea32f2f50729c8f006108677d = $(`<iframe src="data:text/html;charset=utf-8;base64,CiAgICAKICAgICAgICA8ZGl2IHN0eWxlPSJ0ZXh0LWFsaWduOiBjZW50ZXI7IGZvbnQtZmFtaWx5OiAnSGVsdmV0aWNhIE5ldWUnLCBBcmlhbCwgc2Fucy1zZXJpZjsiPgogICAgICAgICAgICA8aDQgc3R5bGU9Im1hcmdpbi1ib3R0b206IDE1cHg7IGZvbnQtc2l6ZTogMTZweDsiPuWKoOmAn+i/m+WMljwvaDQ+CiAgICAgICAgICAgIDxhIGhyZWY9Imh0dHBzOi8vd3d3LmJvb3N0ZXIudGVjaC96aC8iIHRhcmdldD0iX2JsYW5rIiBzdHlsZT0iCiAgICAgICAgICAgICAgICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7CiAgICAgICAgICAgICAgICBwYWRkaW5nOiA4cHggMThweDsKICAgICAgICAgICAgICAgIGZvbnQtc2l6ZTogMTRweDsKICAgICAgICAgICAgICAgIGZvbnQtd2VpZ2h0OiBib2xkOwogICAgICAgICAgICAgICAgY29sb3I6ICNmZmZmZmY7CiAgICAgICAgICAgICAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjMDA3QkZGOwogICAgICAgICAgICAgICAgYm9yZGVyOiBub25lOwogICAgICAgICAgICAgICAgYm9yZGVyLXJhZGl1czogNXB4OwogICAgICAgICAgICAgICAgdGV4dC1kZWNvcmF0aW9uOiBub25lOwogICAgICAgICAgICAgICAgYm94LXNoYWRvdzogMCAycHggNHB4IHJnYmEoMCwwLDAsMC4yKTsKICAgICAgICAgICAgIj7orr/pl67lrpjnvZE8L2E+CiAgICAgICAgPC9kaXY+CiAgICAgICAg" width="200" style="border:none !important;" height="80"></iframe>`)[0];
+                popup_51406fdb6dc6c0930db5a85b012c7081.setContent(i_frame_4f176fbea32f2f50729c8f006108677d);
+            
+        
+
+        marker_4fcf6e82904b8e10ccbf498fafe3d90f.bindPopup(popup_51406fdb6dc6c0930db5a85b012c7081)
+        ;
+
+        
+    
+    
+            marker_4fcf6e82904b8e10ccbf498fafe3d90f.bindTooltip(
+                `<div>
+                     
+        <div style="font-size: 16px; font-family: 'Helvetica Neue', Arial, sans-serif; padding: 5px; max-width: 600px;">
+            <p style="margin: 0 0 15px 0;"><b>公司名:</b> 加速进化</p>
+            <p style="margin: 0 0 15px 0;"><b>地区:</b> 中国北京</p>
+            <p style="margin: 0 0 15px 0;"><b>分类:</b> 人形机器人</p>
+            <p style="margin: 0 0 15px 0;"><b>成立时间:</b> 2023年</p>
+            <p style="margin: 0 0 15px 0;"><b>创始人/团队:</b> 程昊、赵国明（清华）</p>
+            <p style="margin: 0 0 15px 0;"><b>代表产品:</b> Booster T1</p>
+            <hr style="margin: 15px 0;">
+            <p style="margin: 0;"><b>公司简要介绍:</b></p>
+            <p style="margin: 0; font-style: italic;">提供开发者双足机器人Booster<br>T1，强调运动能力与稳定性</p>
+        </div>
+        
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_1986b9cf1ee2237000a970c9b8deaa70 = L.marker(
+                [31.19, 121.62],
+                {}
+            ).addTo(marker_cluster_10ea701e6bed96c037c494563bca5929);
+        
+    
+            var icon_74bf490b91eb77b4e959e6e3946d0b66 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "robot", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_1986b9cf1ee2237000a970c9b8deaa70.setIcon(icon_74bf490b91eb77b4e959e6e3946d0b66);
+        
+    
+        var popup_05253d591bd0436df313cd98a407982c = L.popup({"maxWidth": 200});
+
+        
+            
+                var i_frame_7f9d19645b146d3bd08391b268950fb5 = $(`<iframe src="data:text/html;charset=utf-8;base64,CiAgICAKICAgICAgICA8ZGl2IHN0eWxlPSJ0ZXh0LWFsaWduOiBjZW50ZXI7IGZvbnQtZmFtaWx5OiAnSGVsdmV0aWNhIE5ldWUnLCBBcmlhbCwgc2Fucy1zZXJpZjsiPgogICAgICAgICAgICA8aDQgc3R5bGU9Im1hcmdpbi1ib3R0b206IDE1cHg7IGZvbnQtc2l6ZTogMTZweDsiPuW8gOaZruWLkuacuuWZqOS6ujwvaDQ+CiAgICAgICAgICAgIDxhIGhyZWY9Imh0dHBzOi8vZ290b2tlcGxlci5jb20vaG9tZSIgdGFyZ2V0PSJfYmxhbmsiIHN0eWxlPSIKICAgICAgICAgICAgICAgIGRpc3BsYXk6IGlubGluZS1ibG9jazsKICAgICAgICAgICAgICAgIHBhZGRpbmc6IDhweCAxOHB4OwogICAgICAgICAgICAgICAgZm9udC1zaXplOiAxNHB4OwogICAgICAgICAgICAgICAgZm9udC13ZWlnaHQ6IGJvbGQ7CiAgICAgICAgICAgICAgICBjb2xvcjogI2ZmZmZmZjsKICAgICAgICAgICAgICAgIGJhY2tncm91bmQtY29sb3I6ICMwMDdCRkY7CiAgICAgICAgICAgICAgICBib3JkZXI6IG5vbmU7CiAgICAgICAgICAgICAgICBib3JkZXItcmFkaXVzOiA1cHg7CiAgICAgICAgICAgICAgICB0ZXh0LWRlY29yYXRpb246IG5vbmU7CiAgICAgICAgICAgICAgICBib3gtc2hhZG93OiAwIDJweCA0cHggcmdiYSgwLDAsMCwwLjIpOwogICAgICAgICAgICAiPuiuv+mXruWumOe9kTwvYT4KICAgICAgICA8L2Rpdj4KICAgICAgICA=" width="200" style="border:none !important;" height="80"></iframe>`)[0];
+                popup_05253d591bd0436df313cd98a407982c.setContent(i_frame_7f9d19645b146d3bd08391b268950fb5);
+            
+        
+
+        marker_1986b9cf1ee2237000a970c9b8deaa70.bindPopup(popup_05253d591bd0436df313cd98a407982c)
+        ;
+
+        
+    
+    
+            marker_1986b9cf1ee2237000a970c9b8deaa70.bindTooltip(
+                `<div>
+                     
+        <div style="font-size: 16px; font-family: 'Helvetica Neue', Arial, sans-serif; padding: 5px; max-width: 600px;">
+            <p style="margin: 0 0 15px 0;"><b>公司名:</b> 开普勒机器人</p>
+            <p style="margin: 0 0 15px 0;"><b>地区:</b> 中国上海</p>
+            <p style="margin: 0 0 15px 0;"><b>分类:</b> 工业应用机器人</p>
+            <p style="margin: 0 0 15px 0;"><b>成立时间:</b> 2023年</p>
+            <p style="margin: 0 0 15px 0;"><b>创始人/团队:</b> 创始人<br>杨华；联合创始人／CEO 胡德波。m.mp.oeeee.com+1</p>
+            <p style="margin: 0 0 15px 0;"><b>代表产品:</b> 人形机器人“先行者 K1/K2”系列。m.mp.oeeee.com+1</p>
+            <hr style="margin: 15px 0;">
+            <p style="margin: 0;"><b>公司简要介绍:</b></p>
+            <p style="margin: 0; font-style: italic;">提供智能制造、仓储物流等行业的自动化解决方案</p>
+        </div>
+        
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_237c0c9a7bb7c22b03f880803329ed5e = L.marker(
+                [22.56, 113.96],
+                {}
+            ).addTo(marker_cluster_10ea701e6bed96c037c494563bca5929);
+        
+    
+            var icon_534941e74b6d283b478b0712c617a144 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "robot", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_237c0c9a7bb7c22b03f880803329ed5e.setIcon(icon_534941e74b6d283b478b0712c617a144);
+        
+    
+        var popup_fa638a01a359e67f85f75d3687e35fb3 = L.popup({"maxWidth": 200});
+
+        
+            
+                var i_frame_37f0b8f7a3fd21bb4d357b11871fe64c = $(`<iframe src="data:text/html;charset=utf-8;base64,CiAgICAKICAgICAgICA8ZGl2IHN0eWxlPSJ0ZXh0LWFsaWduOiBjZW50ZXI7IGZvbnQtZmFtaWx5OiAnSGVsdmV0aWNhIE5ldWUnLCBBcmlhbCwgc2Fucy1zZXJpZjsiPgogICAgICAgICAgICA8aDQgc3R5bGU9Im1hcmdpbi1ib3R0b206IDE1cHg7IGZvbnQtc2l6ZTogMTZweDsiPuS5kOiBmjwvaDQ+CiAgICAgICAgICAgIDxhIGhyZWY9Imh0dHA6Ly93d3cubGVqdXJvYm90LmNvbSIgdGFyZ2V0PSJfYmxhbmsiIHN0eWxlPSIKICAgICAgICAgICAgICAgIGRpc3BsYXk6IGlubGluZS1ibG9jazsKICAgICAgICAgICAgICAgIHBhZGRpbmc6IDhweCAxOHB4OwogICAgICAgICAgICAgICAgZm9udC1zaXplOiAxNHB4OwogICAgICAgICAgICAgICAgZm9udC13ZWlnaHQ6IGJvbGQ7CiAgICAgICAgICAgICAgICBjb2xvcjogI2ZmZmZmZjsKICAgICAgICAgICAgICAgIGJhY2tncm91bmQtY29sb3I6ICMwMDdCRkY7CiAgICAgICAgICAgICAgICBib3JkZXI6IG5vbmU7CiAgICAgICAgICAgICAgICBib3JkZXItcmFkaXVzOiA1cHg7CiAgICAgICAgICAgICAgICB0ZXh0LWRlY29yYXRpb246IG5vbmU7CiAgICAgICAgICAgICAgICBib3gtc2hhZG93OiAwIDJweCA0cHggcmdiYSgwLDAsMCwwLjIpOwogICAgICAgICAgICAiPuiuv+mXruWumOe9kTwvYT4KICAgICAgICA8L2Rpdj4KICAgICAgICA=" width="200" style="border:none !important;" height="80"></iframe>`)[0];
+                popup_fa638a01a359e67f85f75d3687e35fb3.setContent(i_frame_37f0b8f7a3fd21bb4d357b11871fe64c);
+            
+        
+
+        marker_237c0c9a7bb7c22b03f880803329ed5e.bindPopup(popup_fa638a01a359e67f85f75d3687e35fb3)
+        ;
+
+        
+    
+    
+            marker_237c0c9a7bb7c22b03f880803329ed5e.bindTooltip(
+                `<div>
+                     
+        <div style="font-size: 16px; font-family: 'Helvetica Neue', Arial, sans-serif; padding: 5px; max-width: 600px;">
+            <p style="margin: 0 0 15px 0;"><b>公司名:</b> 乐聚</p>
+            <p style="margin: 0 0 15px 0;"><b>地区:</b> 中国深圳</p>
+            <p style="margin: 0 0 15px 0;"><b>分类:</b> 人形机器人</p>
+            <p style="margin: 0 0 15px 0;"><b>成立时间:</b> 2016年</p>
+            <p style="margin: 0 0 15px 0;"><b>创始人/团队:</b> 冷晓琨（哈工大）</p>
+            <p style="margin: 0 0 15px 0;"><b>代表产品:</b> Aelos、Pando系列</p>
+            <hr style="margin: 15px 0;">
+            <p style="margin: 0;"><b>公司简要介绍:</b></p>
+            <p style="margin: 0; font-style: italic;">专注于小型人形机器人研发，面向教育与科研市场</p>
+        </div>
+        
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_731ee9466f4c49d8c69b19e402f230a1 = L.marker(
+                [22.72, 113.86],
+                {}
+            ).addTo(marker_cluster_10ea701e6bed96c037c494563bca5929);
+        
+    
+            var icon_a440b343443d55853be6bbb40db3ca73 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "robot", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_731ee9466f4c49d8c69b19e402f230a1.setIcon(icon_a440b343443d55853be6bbb40db3ca73);
+        
+    
+        var popup_73c8b5be89b7847f167aae69c8f8d7b0 = L.popup({"maxWidth": 200});
+
+        
+            
+                var i_frame_9214dccb779484270d6727cdc0dd24cb = $(`<iframe src="data:text/html;charset=utf-8;base64,CiAgICAKICAgICAgICA8ZGl2IHN0eWxlPSJ0ZXh0LWFsaWduOiBjZW50ZXI7IGZvbnQtZmFtaWx5OiAnSGVsdmV0aWNhIE5ldWUnLCBBcmlhbCwgc2Fucy1zZXJpZjsiPgogICAgICAgICAgICA8aDQgc3R5bGU9Im1hcmdpbi1ib3R0b206IDE1cHg7IGZvbnQtc2l6ZTogMTZweDsiPueBteWIneaZuuiDvTwvaDQ+CiAgICAgICAgICAgIDxhIGhyZWY9Imh0dHBzOi8vd3d3LnBzaWJvdC5haS8iIHRhcmdldD0iX2JsYW5rIiBzdHlsZT0iCiAgICAgICAgICAgICAgICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7CiAgICAgICAgICAgICAgICBwYWRkaW5nOiA4cHggMThweDsKICAgICAgICAgICAgICAgIGZvbnQtc2l6ZTogMTRweDsKICAgICAgICAgICAgICAgIGZvbnQtd2VpZ2h0OiBib2xkOwogICAgICAgICAgICAgICAgY29sb3I6ICNmZmZmZmY7CiAgICAgICAgICAgICAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjMDA3QkZGOwogICAgICAgICAgICAgICAgYm9yZGVyOiBub25lOwogICAgICAgICAgICAgICAgYm9yZGVyLXJhZGl1czogNXB4OwogICAgICAgICAgICAgICAgdGV4dC1kZWNvcmF0aW9uOiBub25lOwogICAgICAgICAgICAgICAgYm94LXNoYWRvdzogMCAycHggNHB4IHJnYmEoMCwwLDAsMC4yKTsKICAgICAgICAgICAgIj7orr/pl67lrpjnvZE8L2E+CiAgICAgICAgPC9kaXY+CiAgICAgICAg" width="200" style="border:none !important;" height="80"></iframe>`)[0];
+                popup_73c8b5be89b7847f167aae69c8f8d7b0.setContent(i_frame_9214dccb779484270d6727cdc0dd24cb);
+            
+        
+
+        marker_731ee9466f4c49d8c69b19e402f230a1.bindPopup(popup_73c8b5be89b7847f167aae69c8f8d7b0)
+        ;
+
+        
+    
+    
+            marker_731ee9466f4c49d8c69b19e402f230a1.bindTooltip(
+                `<div>
+                     
+        <div style="font-size: 16px; font-family: 'Helvetica Neue', Arial, sans-serif; padding: 5px; max-width: 600px;">
+            <p style="margin: 0 0 15px 0;"><b>公司名:</b> 灵初智能</p>
+            <p style="margin: 0 0 15px 0;"><b>地区:</b> 中国深圳</p>
+            <p style="margin: 0 0 15px 0;"><b>分类:</b> 机器人AI</p>
+            <p style="margin: 0 0 15px 0;"><b>成立时间:</b> 2023年</p>
+            <p style="margin: 0 0 15px 0;"><b>创始人/团队:</b> 王启斌（北京大学团队）</p>
+            <p style="margin: 0 0 15px 0;"><b>代表产品:</b> Psi R0，R0.5等具身VLA模型</p>
+            <hr style="margin: 15px 0;">
+            <p style="margin: 0;"><b>公司简要介绍:</b></p>
+            <p style="margin: 0; font-style: italic;">聚焦具身智能与大模型结合，开发机器人“大脑”</p>
+        </div>
+        
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_513d6c4a061b93747efbbaedbaffc977 = L.marker(
+                [22.58, 113.95],
+                {}
+            ).addTo(marker_cluster_10ea701e6bed96c037c494563bca5929);
+        
+    
+            var icon_1f65681cee696bc86ef31a4b8703faa6 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "robot", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_513d6c4a061b93747efbbaedbaffc977.setIcon(icon_1f65681cee696bc86ef31a4b8703faa6);
+        
+    
+        var popup_605de50e7e9673454b35e2c10191baba = L.popup({"maxWidth": 200});
+
+        
+            
+                var i_frame_9751678f0c1d1ef4fe2c1df303b840bc = $(`<iframe src="data:text/html;charset=utf-8;base64,CiAgICAKICAgICAgICA8ZGl2IHN0eWxlPSJ0ZXh0LWFsaWduOiBjZW50ZXI7IGZvbnQtZmFtaWx5OiAnSGVsdmV0aWNhIE5ldWUnLCBBcmlhbCwgc2Fucy1zZXJpZjsiPgogICAgICAgICAgICA8aDQgc3R5bGU9Im1hcmdpbi1ib3R0b206IDE1cHg7IGZvbnQtc2l6ZTogMTZweDsiPuaZrua4oTwvaDQ+CiAgICAgICAgICAgIDxhIGhyZWY9Imh0dHBzOi8vd3d3LnB1ZHVyb2JvdGljcy5jb20iIHRhcmdldD0iX2JsYW5rIiBzdHlsZT0iCiAgICAgICAgICAgICAgICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7CiAgICAgICAgICAgICAgICBwYWRkaW5nOiA4cHggMThweDsKICAgICAgICAgICAgICAgIGZvbnQtc2l6ZTogMTRweDsKICAgICAgICAgICAgICAgIGZvbnQtd2VpZ2h0OiBib2xkOwogICAgICAgICAgICAgICAgY29sb3I6ICNmZmZmZmY7CiAgICAgICAgICAgICAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjMDA3QkZGOwogICAgICAgICAgICAgICAgYm9yZGVyOiBub25lOwogICAgICAgICAgICAgICAgYm9yZGVyLXJhZGl1czogNXB4OwogICAgICAgICAgICAgICAgdGV4dC1kZWNvcmF0aW9uOiBub25lOwogICAgICAgICAgICAgICAgYm94LXNoYWRvdzogMCAycHggNHB4IHJnYmEoMCwwLDAsMC4yKTsKICAgICAgICAgICAgIj7orr/pl67lrpjnvZE8L2E+CiAgICAgICAgPC9kaXY+CiAgICAgICAg" width="200" style="border:none !important;" height="80"></iframe>`)[0];
+                popup_605de50e7e9673454b35e2c10191baba.setContent(i_frame_9751678f0c1d1ef4fe2c1df303b840bc);
+            
+        
+
+        marker_513d6c4a061b93747efbbaedbaffc977.bindPopup(popup_605de50e7e9673454b35e2c10191baba)
+        ;
+
+        
+    
+    
+            marker_513d6c4a061b93747efbbaedbaffc977.bindTooltip(
+                `<div>
+                     
+        <div style="font-size: 16px; font-family: 'Helvetica Neue', Arial, sans-serif; padding: 5px; max-width: 600px;">
+            <p style="margin: 0 0 15px 0;"><b>公司名:</b> 普渡</p>
+            <p style="margin: 0 0 15px 0;"><b>地区:</b> 中国深圳</p>
+            <p style="margin: 0 0 15px 0;"><b>分类:</b> 服务机器人</p>
+            <p style="margin: 0 0 15px 0;"><b>成立时间:</b> 2016年</p>
+            <p style="margin: 0 0 15px 0;"><b>创始人/团队:</b> 张涛</p>
+            <p style="margin: 0 0 15px 0;"><b>代表产品:</b> Bella、HolaBot、PUDU SLAM</p>
+            <hr style="margin: 15px 0;">
+            <p style="margin: 0;"><b>公司简要介绍:</b></p>
+            <p style="margin: 0; font-style: italic;">餐饮配送机器人领先企业，产品广泛应用于全球</p>
+        </div>
+        
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_b813d8e840c8f236eedb98b1d3c45cfe = L.marker(
+                [30.25, 120.25],
+                {}
+            ).addTo(marker_cluster_10ea701e6bed96c037c494563bca5929);
+        
+    
+            var icon_579c65960fd5de2a7fd86c3ce395418a = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "robot", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_b813d8e840c8f236eedb98b1d3c45cfe.setIcon(icon_579c65960fd5de2a7fd86c3ce395418a);
+        
+    
+        var popup_3b3abc08878c572822e9c16c7be5422b = L.popup({"maxWidth": 200});
+
+        
+            
+                var i_frame_1dde218834a3d46f657edfaf7f7f021f = $(`<iframe src="data:text/html;charset=utf-8;base64,CiAgICAKICAgICAgICA8ZGl2IHN0eWxlPSJ0ZXh0LWFsaWduOiBjZW50ZXI7IGZvbnQtZmFtaWx5OiAnSGVsdmV0aWNhIE5ldWUnLCBBcmlhbCwgc2Fucy1zZXJpZjsiPgogICAgICAgICAgICA8aDQgc3R5bGU9Im1hcmdpbi1ib3R0b206IDE1cHg7IGZvbnQtc2l6ZTogMTZweDsiPuWNg+Wvu+aZuuiDvTwvaDQ+CiAgICAgICAgICAgIDxhIGhyZWY9Imh0dHBzOi8vd3d3LnF4aW50ZWNoLmNvbS8iIHRhcmdldD0iX2JsYW5rIiBzdHlsZT0iCiAgICAgICAgICAgICAgICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7CiAgICAgICAgICAgICAgICBwYWRkaW5nOiA4cHggMThweDsKICAgICAgICAgICAgICAgIGZvbnQtc2l6ZTogMTRweDsKICAgICAgICAgICAgICAgIGZvbnQtd2VpZ2h0OiBib2xkOwogICAgICAgICAgICAgICAgY29sb3I6ICNmZmZmZmY7CiAgICAgICAgICAgICAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjMDA3QkZGOwogICAgICAgICAgICAgICAgYm9yZGVyOiBub25lOwogICAgICAgICAgICAgICAgYm9yZGVyLXJhZGl1czogNXB4OwogICAgICAgICAgICAgICAgdGV4dC1kZWNvcmF0aW9uOiBub25lOwogICAgICAgICAgICAgICAgYm94LXNoYWRvdzogMCAycHggNHB4IHJnYmEoMCwwLDAsMC4yKTsKICAgICAgICAgICAgIj7orr/pl67lrpjnvZE8L2E+CiAgICAgICAgPC9kaXY+CiAgICAgICAg" width="200" style="border:none !important;" height="80"></iframe>`)[0];
+                popup_3b3abc08878c572822e9c16c7be5422b.setContent(i_frame_1dde218834a3d46f657edfaf7f7f021f);
+            
+        
+
+        marker_b813d8e840c8f236eedb98b1d3c45cfe.bindPopup(popup_3b3abc08878c572822e9c16c7be5422b)
+        ;
+
+        
+    
+    
+            marker_b813d8e840c8f236eedb98b1d3c45cfe.bindTooltip(
+                `<div>
+                     
+        <div style="font-size: 16px; font-family: 'Helvetica Neue', Arial, sans-serif; padding: 5px; max-width: 600px;">
+            <p style="margin: 0 0 15px 0;"><b>公司名:</b> 千寻智能</p>
+            <p style="margin: 0 0 15px 0;"><b>地区:</b> 中国杭州</p>
+            <p style="margin: 0 0 15px 0;"><b>分类:</b> 具身智能解决方案</p>
+            <p style="margin: 0 0 15px 0;"><b>成立时间:</b> 2023年</p>
+            <p style="margin: 0 0 15px 0;"><b>创始人/团队:</b> 清华高阳</p>
+            <p style="margin: 0 0 15px 0;"><b>代表产品:</b> ViLa模型支持跨模态推理，CoPa模型优化物理约束下的动<br>作规划</p>
+            <hr style="margin: 15px 0;">
+            <p style="margin: 0;"><b>公司简要介绍:</b></p>
+            <p style="margin: 0; font-style: italic;">构建高泛化机器人大脑，结合ViLa和CoPa多模态模型提升<br>交互性</p>
+        </div>
+        
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_45e105b894f91b3f443162d46c2a5b03 = L.marker(
+                [31.03, 121.47],
+                {}
+            ).addTo(marker_cluster_10ea701e6bed96c037c494563bca5929);
+        
+    
+            var icon_91f8b3b1f9bf18899d04623a05d3c5de = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "robot", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_45e105b894f91b3f443162d46c2a5b03.setIcon(icon_91f8b3b1f9bf18899d04623a05d3c5de);
+        
+    
+        var popup_6f39386a926fa0ad36a2995d736d7a09 = L.popup({"maxWidth": 200});
+
+        
+            
+                var i_frame_e1883d57bf9a847b36468936386ac69a = $(`<iframe src="data:text/html;charset=utf-8;base64,CiAgICAKICAgICAgICA8ZGl2IHN0eWxlPSJ0ZXh0LWFsaWduOiBjZW50ZXI7IGZvbnQtZmFtaWx5OiAnSGVsdmV0aWNhIE5ldWUnLCBBcmlhbCwgc2Fucy1zZXJpZjsiPgogICAgICAgICAgICA8aDQgc3R5bGU9Im1hcmdpbi1ib3R0b206IDE1cHg7IGZvbnQtc2l6ZTogMTZweDsiPuepueW9u+aZuuiDvTwvaDQ+CiAgICAgICAgICAgIDxhIGhyZWY9Imh0dHBzOi8vd3d3Lm5vZW1hdHJpeC5haS8iIHRhcmdldD0iX2JsYW5rIiBzdHlsZT0iCiAgICAgICAgICAgICAgICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7CiAgICAgICAgICAgICAgICBwYWRkaW5nOiA4cHggMThweDsKICAgICAgICAgICAgICAgIGZvbnQtc2l6ZTogMTRweDsKICAgICAgICAgICAgICAgIGZvbnQtd2VpZ2h0OiBib2xkOwogICAgICAgICAgICAgICAgY29sb3I6ICNmZmZmZmY7CiAgICAgICAgICAgICAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjMDA3QkZGOwogICAgICAgICAgICAgICAgYm9yZGVyOiBub25lOwogICAgICAgICAgICAgICAgYm9yZGVyLXJhZGl1czogNXB4OwogICAgICAgICAgICAgICAgdGV4dC1kZWNvcmF0aW9uOiBub25lOwogICAgICAgICAgICAgICAgYm94LXNoYWRvdzogMCAycHggNHB4IHJnYmEoMCwwLDAsMC4yKTsKICAgICAgICAgICAgIj7orr/pl67lrpjnvZE8L2E+CiAgICAgICAgPC9kaXY+CiAgICAgICAg" width="200" style="border:none !important;" height="80"></iframe>`)[0];
+                popup_6f39386a926fa0ad36a2995d736d7a09.setContent(i_frame_e1883d57bf9a847b36468936386ac69a);
+            
+        
+
+        marker_45e105b894f91b3f443162d46c2a5b03.bindPopup(popup_6f39386a926fa0ad36a2995d736d7a09)
+        ;
+
+        
+    
+    
+            marker_45e105b894f91b3f443162d46c2a5b03.bindTooltip(
+                `<div>
+                     
+        <div style="font-size: 16px; font-family: 'Helvetica Neue', Arial, sans-serif; padding: 5px; max-width: 600px;">
+            <p style="margin: 0 0 15px 0;"><b>公司名:</b> 穹彻智能</p>
+            <p style="margin: 0 0 15px 0;"><b>地区:</b> 中国上海</p>
+            <p style="margin: 0 0 15px 0;"><b>分类:</b> 具身智能解决方案</p>
+            <p style="margin: 0 0 15px 0;"><b>成立时间:</b> 2023年11月</p>
+            <p style="margin: 0 0 15px 0;"><b>创始人/团队:</b> 卢策吾（上海交大）</p>
+            <p style="margin: 0 0 15px 0;"><b>代表产品:</b> AnySkill系列</p>
+            <hr style="margin: 15px 0;">
+            <p style="margin: 0;"><b>公司简要介绍:</b></p>
+            <p style="margin: 0; font-style: italic;">上海交大背景，展示AnySkill通用技能（清洁、柔性操作等）</p>
+        </div>
+        
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_e56a02016c8b55f71abd32b6215d4f56 = L.marker(
+                [40.13, 116.43],
+                {}
+            ).addTo(marker_cluster_10ea701e6bed96c037c494563bca5929);
+        
+    
+            var icon_0d75b23adac154117dd4dba1906b31f9 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "robot", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_e56a02016c8b55f71abd32b6215d4f56.setIcon(icon_0d75b23adac154117dd4dba1906b31f9);
+        
+    
+        var popup_ca6a2df380001e58d401a43e445b5d03 = L.popup({"maxWidth": 200});
+
+        
+            
+                var i_frame_27f7996c0c6fba8a7fea1abbbffc0e96 = $(`<iframe src="data:text/html;charset=utf-8;base64,CiAgICAKICAgICAgICA8ZGl2IHN0eWxlPSJ0ZXh0LWFsaWduOiBjZW50ZXI7IGZvbnQtZmFtaWx5OiAnSGVsdmV0aWNhIE5ldWUnLCBBcmlhbCwgc2Fucy1zZXJpZjsiPgogICAgICAgICAgICA8aDQgc3R5bGU9Im1hcmdpbi1ib3R0b206IDE1cHg7IGZvbnQtc2l6ZTogMTZweDsiPuadvuW7tuWKqOWKmzwvaDQ+CiAgICAgICAgICAgIDxhIGhyZWY9Imh0dHBzOi8vbm9ldGl4cm9ib3RpY3MuY29tLyIgdGFyZ2V0PSJfYmxhbmsiIHN0eWxlPSIKICAgICAgICAgICAgICAgIGRpc3BsYXk6IGlubGluZS1ibG9jazsKICAgICAgICAgICAgICAgIHBhZGRpbmc6IDhweCAxOHB4OwogICAgICAgICAgICAgICAgZm9udC1zaXplOiAxNHB4OwogICAgICAgICAgICAgICAgZm9udC13ZWlnaHQ6IGJvbGQ7CiAgICAgICAgICAgICAgICBjb2xvcjogI2ZmZmZmZjsKICAgICAgICAgICAgICAgIGJhY2tncm91bmQtY29sb3I6ICMwMDdCRkY7CiAgICAgICAgICAgICAgICBib3JkZXI6IG5vbmU7CiAgICAgICAgICAgICAgICBib3JkZXItcmFkaXVzOiA1cHg7CiAgICAgICAgICAgICAgICB0ZXh0LWRlY29yYXRpb246IG5vbmU7CiAgICAgICAgICAgICAgICBib3gtc2hhZG93OiAwIDJweCA0cHggcmdiYSgwLDAsMCwwLjIpOwogICAgICAgICAgICAiPuiuv+mXruWumOe9kTwvYT4KICAgICAgICA8L2Rpdj4KICAgICAgICA=" width="200" style="border:none !important;" height="80"></iframe>`)[0];
+                popup_ca6a2df380001e58d401a43e445b5d03.setContent(i_frame_27f7996c0c6fba8a7fea1abbbffc0e96);
+            
+        
+
+        marker_e56a02016c8b55f71abd32b6215d4f56.bindPopup(popup_ca6a2df380001e58d401a43e445b5d03)
+        ;
+
+        
+    
+    
+            marker_e56a02016c8b55f71abd32b6215d4f56.bindTooltip(
+                `<div>
+                     
+        <div style="font-size: 16px; font-family: 'Helvetica Neue', Arial, sans-serif; padding: 5px; max-width: 600px;">
+            <p style="margin: 0 0 15px 0;"><b>公司名:</b> 松延动力</p>
+            <p style="margin: 0 0 15px 0;"><b>地区:</b> 中国北京</p>
+            <p style="margin: 0 0 15px 0;"><b>分类:</b> 人形机器人</p>
+            <p style="margin: 0 0 15px 0;"><b>成立时间:</b> 未明确</p>
+            <p style="margin: 0 0 15px 0;"><b>创始人/团队:</b> 姜哲源（创始人、董事长）</p>
+            <p style="margin: 0 0 15px 0;"><b>代表产品:</b> 人形机器人 “N2” 系列（高机动/跑跳能力）jfdaily.com</p>
+            <hr style="margin: 15px 0;">
+            <p style="margin: 0;"><b>公司简要介绍:</b></p>
+            <p style="margin: 0; font-style: italic;">开发高动态人形机器人，强调运动控制能力</p>
+        </div>
+        
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_d5cca410ab68c8fd5af9943d38e10025 = L.marker(
+                [40.05, 116.32],
+                {}
+            ).addTo(marker_cluster_10ea701e6bed96c037c494563bca5929);
+        
+    
+            var icon_303e8088f40af8a183b129937f715d7a = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "robot", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_d5cca410ab68c8fd5af9943d38e10025.setIcon(icon_303e8088f40af8a183b129937f715d7a);
+        
+    
+        var popup_34eb4c9f6c4c16b4555d5e6c2adaf55f = L.popup({"maxWidth": 200});
+
+        
+            
+                var i_frame_fff720eb923836982ae7dd0d295ede4b = $(`<iframe src="data:text/html;charset=utf-8;base64,CiAgICAKICAgICAgICA8ZGl2IHN0eWxlPSJ0ZXh0LWFsaWduOiBjZW50ZXI7IGZvbnQtZmFtaWx5OiAnSGVsdmV0aWNhIE5ldWUnLCBBcmlhbCwgc2Fucy1zZXJpZjsiPgogICAgICAgICAgICA8aDQgc3R5bGU9Im1hcmdpbi1ib3R0b206IDE1cHg7IGZvbnQtc2l6ZTogMTZweDsiPuWwj+exs+acuuWZqOS6ujwvaDQ+CiAgICAgICAgICAgIDxhIGhyZWY9Imh0dHBzOi8vd3d3Lm1pLmNvbSIgdGFyZ2V0PSJfYmxhbmsiIHN0eWxlPSIKICAgICAgICAgICAgICAgIGRpc3BsYXk6IGlubGluZS1ibG9jazsKICAgICAgICAgICAgICAgIHBhZGRpbmc6IDhweCAxOHB4OwogICAgICAgICAgICAgICAgZm9udC1zaXplOiAxNHB4OwogICAgICAgICAgICAgICAgZm9udC13ZWlnaHQ6IGJvbGQ7CiAgICAgICAgICAgICAgICBjb2xvcjogI2ZmZmZmZjsKICAgICAgICAgICAgICAgIGJhY2tncm91bmQtY29sb3I6ICMwMDdCRkY7CiAgICAgICAgICAgICAgICBib3JkZXI6IG5vbmU7CiAgICAgICAgICAgICAgICBib3JkZXItcmFkaXVzOiA1cHg7CiAgICAgICAgICAgICAgICB0ZXh0LWRlY29yYXRpb246IG5vbmU7CiAgICAgICAgICAgICAgICBib3gtc2hhZG93OiAwIDJweCA0cHggcmdiYSgwLDAsMCwwLjIpOwogICAgICAgICAgICAiPuiuv+mXruWumOe9kTwvYT4KICAgICAgICA8L2Rpdj4KICAgICAgICA=" width="200" style="border:none !important;" height="80"></iframe>`)[0];
+                popup_34eb4c9f6c4c16b4555d5e6c2adaf55f.setContent(i_frame_fff720eb923836982ae7dd0d295ede4b);
+            
+        
+
+        marker_d5cca410ab68c8fd5af9943d38e10025.bindPopup(popup_34eb4c9f6c4c16b4555d5e6c2adaf55f)
+        ;
+
+        
+    
+    
+            marker_d5cca410ab68c8fd5af9943d38e10025.bindTooltip(
+                `<div>
+                     
+        <div style="font-size: 16px; font-family: 'Helvetica Neue', Arial, sans-serif; padding: 5px; max-width: 600px;">
+            <p style="margin: 0 0 15px 0;"><b>公司名:</b> 小米机器人</p>
+            <p style="margin: 0 0 15px 0;"><b>地区:</b> 中国北京</p>
+            <p style="margin: 0 0 15px 0;"><b>分类:</b> 人形机器人</p>
+            <p style="margin: 0 0 15px 0;"><b>成立时间:</b> -</p>
+            <p style="margin: 0 0 15px 0;"><b>创始人/团队:</b> 雷军（小米集团）</p>
+            <p style="margin: 0 0 15px 0;"><b>代表产品:</b> CyberOne、CyberDog</p>
+            <hr style="margin: 15px 0;">
+            <p style="margin: 0;"><b>公司简要介绍:</b></p>
+            <p style="margin: 0; font-style: italic;">国内大厂代表，推出全尺寸人形机器人CyberOne，布局智能<br>制造6</p>
+        </div>
+        
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_350262ec135eaec8caa89a9de2bf7e7b = L.marker(
+                [22.53, 113.95],
+                {}
+            ).addTo(marker_cluster_10ea701e6bed96c037c494563bca5929);
+        
+    
+            var icon_82f958985cf488fd4be85bd629a6e793 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "robot", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_350262ec135eaec8caa89a9de2bf7e7b.setIcon(icon_82f958985cf488fd4be85bd629a6e793);
+        
+    
+        var popup_2fbc8a64618865ca90d18920156dd388 = L.popup({"maxWidth": 200});
+
+        
+            
+                var i_frame_0a1d04477ca3ae381e2088ddc66c86bc = $(`<iframe src="data:text/html;charset=utf-8;base64,CiAgICAKICAgICAgICA8ZGl2IHN0eWxlPSJ0ZXh0LWFsaWduOiBjZW50ZXI7IGZvbnQtZmFtaWx5OiAnSGVsdmV0aWNhIE5ldWUnLCBBcmlhbCwgc2Fucy1zZXJpZjsiPgogICAgICAgICAgICA8aDQgc3R5bGU9Im1hcmdpbi1ib3R0b206IDE1cHg7IGZvbnQtc2l6ZTogMTZweDsiPuaYn+WwmOaZuuiDvTwvaDQ+CiAgICAgICAgICAgIDxhIGhyZWY9Imh0dHBzOi8vd3d3LmFzdHJpYm90LmNvbS9lbiIgdGFyZ2V0PSJfYmxhbmsiIHN0eWxlPSIKICAgICAgICAgICAgICAgIGRpc3BsYXk6IGlubGluZS1ibG9jazsKICAgICAgICAgICAgICAgIHBhZGRpbmc6IDhweCAxOHB4OwogICAgICAgICAgICAgICAgZm9udC1zaXplOiAxNHB4OwogICAgICAgICAgICAgICAgZm9udC13ZWlnaHQ6IGJvbGQ7CiAgICAgICAgICAgICAgICBjb2xvcjogI2ZmZmZmZjsKICAgICAgICAgICAgICAgIGJhY2tncm91bmQtY29sb3I6ICMwMDdCRkY7CiAgICAgICAgICAgICAgICBib3JkZXI6IG5vbmU7CiAgICAgICAgICAgICAgICBib3JkZXItcmFkaXVzOiA1cHg7CiAgICAgICAgICAgICAgICB0ZXh0LWRlY29yYXRpb246IG5vbmU7CiAgICAgICAgICAgICAgICBib3gtc2hhZG93OiAwIDJweCA0cHggcmdiYSgwLDAsMCwwLjIpOwogICAgICAgICAgICAiPuiuv+mXruWumOe9kTwvYT4KICAgICAgICA8L2Rpdj4KICAgICAgICA=" width="200" style="border:none !important;" height="80"></iframe>`)[0];
+                popup_2fbc8a64618865ca90d18920156dd388.setContent(i_frame_0a1d04477ca3ae381e2088ddc66c86bc);
+            
+        
+
+        marker_350262ec135eaec8caa89a9de2bf7e7b.bindPopup(popup_2fbc8a64618865ca90d18920156dd388)
+        ;
+
+        
+    
+    
+            marker_350262ec135eaec8caa89a9de2bf7e7b.bindTooltip(
+                `<div>
+                     
+        <div style="font-size: 16px; font-family: 'Helvetica Neue', Arial, sans-serif; padding: 5px; max-width: 600px;">
+            <p style="margin: 0 0 15px 0;"><b>公司名:</b> 星尘智能</p>
+            <p style="margin: 0 0 15px 0;"><b>地区:</b> 中国深圳</p>
+            <p style="margin: 0 0 15px 0;"><b>分类:</b> AI机器人助理</p>
+            <p style="margin: 0 0 15px 0;"><b>成立时间:</b> 2022年</p>
+            <p style="margin: 0 0 15px 0;"><b>创始人/团队:</b> 来杰（腾讯背景）</p>
+            <p style="margin: 0 0 15px 0;"><b>代表产品:</b> S1机器人</p>
+            <hr style="margin: 15px 0;">
+            <p style="margin: 0;"><b>公司简要介绍:</b></p>
+            <p style="margin: 0; font-style: italic;">研发可落地的AI助理机器人，S1机器人操作性能接近人类</p>
+        </div>
+        
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_29c0a3e36d0ac68a341ce0bd6b1b0120 = L.marker(
+                [40.0, 116.34],
+                {}
+            ).addTo(marker_cluster_10ea701e6bed96c037c494563bca5929);
+        
+    
+            var icon_32c8c4cbd51fe79b3d9a6f42d5d3c65f = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "robot", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_29c0a3e36d0ac68a341ce0bd6b1b0120.setIcon(icon_32c8c4cbd51fe79b3d9a6f42d5d3c65f);
+        
+    
+        var popup_b3a35306a82e2f2cb5e5f24dc39f8294 = L.popup({"maxWidth": 200});
+
+        
+            
+                var i_frame_682c8704f5d38df8f2348cbb6dcd1b1a = $(`<iframe src="data:text/html;charset=utf-8;base64,CiAgICAKICAgICAgICA8ZGl2IHN0eWxlPSJ0ZXh0LWFsaWduOiBjZW50ZXI7IGZvbnQtZmFtaWx5OiAnSGVsdmV0aWNhIE5ldWUnLCBBcmlhbCwgc2Fucy1zZXJpZjsiPgogICAgICAgICAgICA8aDQgc3R5bGU9Im1hcmdpbi1ib3R0b206IDE1cHg7IGZvbnQtc2l6ZTogMTZweDsiPuaYn+WKqOe6quWFgzwvaDQ+CiAgICAgICAgICAgIDxhIGhyZWY9Imh0dHBzOi8vd3d3LnJvYm90ZXJhLmNvbS8iIHRhcmdldD0iX2JsYW5rIiBzdHlsZT0iCiAgICAgICAgICAgICAgICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7CiAgICAgICAgICAgICAgICBwYWRkaW5nOiA4cHggMThweDsKICAgICAgICAgICAgICAgIGZvbnQtc2l6ZTogMTRweDsKICAgICAgICAgICAgICAgIGZvbnQtd2VpZ2h0OiBib2xkOwogICAgICAgICAgICAgICAgY29sb3I6ICNmZmZmZmY7CiAgICAgICAgICAgICAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjMDA3QkZGOwogICAgICAgICAgICAgICAgYm9yZGVyOiBub25lOwogICAgICAgICAgICAgICAgYm9yZGVyLXJhZGl1czogNXB4OwogICAgICAgICAgICAgICAgdGV4dC1kZWNvcmF0aW9uOiBub25lOwogICAgICAgICAgICAgICAgYm94LXNoYWRvdzogMCAycHggNHB4IHJnYmEoMCwwLDAsMC4yKTsKICAgICAgICAgICAgIj7orr/pl67lrpjnvZE8L2E+CiAgICAgICAgPC9kaXY+CiAgICAgICAg" width="200" style="border:none !important;" height="80"></iframe>`)[0];
+                popup_b3a35306a82e2f2cb5e5f24dc39f8294.setContent(i_frame_682c8704f5d38df8f2348cbb6dcd1b1a);
+            
+        
+
+        marker_29c0a3e36d0ac68a341ce0bd6b1b0120.bindPopup(popup_b3a35306a82e2f2cb5e5f24dc39f8294)
+        ;
+
+        
+    
+    
+            marker_29c0a3e36d0ac68a341ce0bd6b1b0120.bindTooltip(
+                `<div>
+                     
+        <div style="font-size: 16px; font-family: 'Helvetica Neue', Arial, sans-serif; padding: 5px; max-width: 600px;">
+            <p style="margin: 0 0 15px 0;"><b>公司名:</b> 星动纪元</p>
+            <p style="margin: 0 0 15px 0;"><b>地区:</b> 中国北京</p>
+            <p style="margin: 0 0 15px 0;"><b>分类:</b> AGI与通用人形机器人</p>
+            <p style="margin: 0 0 15px 0;"><b>成立时间:</b> 2023年</p>
+            <p style="margin: 0 0 15px 0;"><b>创始人/团队:</b> 陈建宇 清华叉院</p>
+            <p style="margin: 0 0 15px 0;"><b>代表产品:</b> 技术路线：聚焦宽领域、多情景的AGI应用</p>
+            <hr style="margin: 15px 0;">
+            <p style="margin: 0;"><b>公司简要介绍:</b></p>
+            <p style="margin: 0; font-style: italic;">清华孵化，研发适应多场景的高智能通用人形机器人</p>
+        </div>
+        
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_099940adc29985375d0f19234f13460d = L.marker(
+                [31.3, 120.78],
+                {}
+            ).addTo(marker_cluster_10ea701e6bed96c037c494563bca5929);
+        
+    
+            var icon_63767ace45a2a042da5d49bc9cbf6a44 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "robot", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_099940adc29985375d0f19234f13460d.setIcon(icon_63767ace45a2a042da5d49bc9cbf6a44);
+        
+    
+        var popup_2befd638d59016c13772d6600260be64 = L.popup({"maxWidth": 200});
+
+        
+            
+                var i_frame_f4b5eddd372e9ab140edc61893bd2dbd = $(`<iframe src="data:text/html;charset=utf-8;base64,CiAgICAKICAgICAgICA8ZGl2IHN0eWxlPSJ0ZXh0LWFsaWduOiBjZW50ZXI7IGZvbnQtZmFtaWx5OiAnSGVsdmV0aWNhIE5ldWUnLCBBcmlhbCwgc2Fucy1zZXJpZjsiPgogICAgICAgICAgICA8aDQgc3R5bGU9Im1hcmdpbi1ib3R0b206IDE1cHg7IGZvbnQtc2l6ZTogMTZweDsiPuaYn+a1t+WbvjwvaDQ+CiAgICAgICAgICAgIDxhIGhyZWY9Imh0dHBzOi8vZ2FsYXhlYS1haS5jb20vY24vYWJvdXQiIHRhcmdldD0iX2JsYW5rIiBzdHlsZT0iCiAgICAgICAgICAgICAgICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7CiAgICAgICAgICAgICAgICBwYWRkaW5nOiA4cHggMThweDsKICAgICAgICAgICAgICAgIGZvbnQtc2l6ZTogMTRweDsKICAgICAgICAgICAgICAgIGZvbnQtd2VpZ2h0OiBib2xkOwogICAgICAgICAgICAgICAgY29sb3I6ICNmZmZmZmY7CiAgICAgICAgICAgICAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjMDA3QkZGOwogICAgICAgICAgICAgICAgYm9yZGVyOiBub25lOwogICAgICAgICAgICAgICAgYm9yZGVyLXJhZGl1czogNXB4OwogICAgICAgICAgICAgICAgdGV4dC1kZWNvcmF0aW9uOiBub25lOwogICAgICAgICAgICAgICAgYm94LXNoYWRvdzogMCAycHggNHB4IHJnYmEoMCwwLDAsMC4yKTsKICAgICAgICAgICAgIj7orr/pl67lrpjnvZE8L2E+CiAgICAgICAgPC9kaXY+CiAgICAgICAg" width="200" style="border:none !important;" height="80"></iframe>`)[0];
+                popup_2befd638d59016c13772d6600260be64.setContent(i_frame_f4b5eddd372e9ab140edc61893bd2dbd);
+            
+        
+
+        marker_099940adc29985375d0f19234f13460d.bindPopup(popup_2befd638d59016c13772d6600260be64)
+        ;
+
+        
+    
+    
+            marker_099940adc29985375d0f19234f13460d.bindTooltip(
+                `<div>
+                     
+        <div style="font-size: 16px; font-family: 'Helvetica Neue', Arial, sans-serif; padding: 5px; max-width: 600px;">
+            <p style="margin: 0 0 15px 0;"><b>公司名:</b> 星海图</p>
+            <p style="margin: 0 0 15px 0;"><b>地区:</b> 中国苏州</p>
+            <p style="margin: 0 0 15px 0;"><b>分类:</b> 具身智能平台</p>
+            <p style="margin: 0 0 15px 0;"><b>成立时间:</b> 2023年</p>
+            <p style="margin: 0 0 15px 0;"><b>创始人/团队:</b> 高继扬|赵行|许华哲</p>
+            <p style="margin: 0 0 15px 0;"><b>代表产品:</b> 全尺寸双臂仿人形机器人GALAXEA R1</p>
+            <hr style="margin: 15px 0;">
+            <p style="margin: 0;"><b>公司简要介绍:</b></p>
+            <p style="margin: 0; font-style: italic;">主打“一脑多形”架构，荣登2024中国AGI创新Top50</p>
+        </div>
+        
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_6b0d11a70e8334e2cedfead69da108d3 = L.marker(
+                [40.04, 116.38],
+                {}
+            ).addTo(marker_cluster_10ea701e6bed96c037c494563bca5929);
+        
+    
+            var icon_3f8e826fef7b35c6f11e686532be8307 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "robot", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_6b0d11a70e8334e2cedfead69da108d3.setIcon(icon_3f8e826fef7b35c6f11e686532be8307);
+        
+    
+        var popup_58393cb0572fe9a635de2aa616e2e284 = L.popup({"maxWidth": 200});
+
+        
+            
+                var i_frame_a0f94fc5afafa1ef45c8545996899794 = $(`<iframe src="data:text/html;charset=utf-8;base64,CiAgICAKICAgICAgICA8ZGl2IHN0eWxlPSJ0ZXh0LWFsaWduOiBjZW50ZXI7IGZvbnQtZmFtaWx5OiAnSGVsdmV0aWNhIE5ldWUnLCBBcmlhbCwgc2Fucy1zZXJpZjsiPgogICAgICAgICAgICA8aDQgc3R5bGU9Im1hcmdpbi1ib3R0b206IDE1cHg7IGZvbnQtc2l6ZTogMTZweDsiPue7tOS7luWKqOWKmzwvaDQ+CiAgICAgICAgICAgIDxhIGhyZWY9Imh0dHBzOi8vd3d3LnZpdGEuY24vIiB0YXJnZXQ9Il9ibGFuayIgc3R5bGU9IgogICAgICAgICAgICAgICAgZGlzcGxheTogaW5saW5lLWJsb2NrOwogICAgICAgICAgICAgICAgcGFkZGluZzogOHB4IDE4cHg7CiAgICAgICAgICAgICAgICBmb250LXNpemU6IDE0cHg7CiAgICAgICAgICAgICAgICBmb250LXdlaWdodDogYm9sZDsKICAgICAgICAgICAgICAgIGNvbG9yOiAjZmZmZmZmOwogICAgICAgICAgICAgICAgYmFja2dyb3VuZC1jb2xvcjogIzAwN0JGRjsKICAgICAgICAgICAgICAgIGJvcmRlcjogbm9uZTsKICAgICAgICAgICAgICAgIGJvcmRlci1yYWRpdXM6IDVweDsKICAgICAgICAgICAgICAgIHRleHQtZGVjb3JhdGlvbjogbm9uZTsKICAgICAgICAgICAgICAgIGJveC1zaGFkb3c6IDAgMnB4IDRweCByZ2JhKDAsMCwwLDAuMik7CiAgICAgICAgICAgICI+6K6/6Zeu5a6Y572RPC9hPgogICAgICAgIDwvZGl2PgogICAgICAgIA==" width="200" style="border:none !important;" height="80"></iframe>`)[0];
+                popup_58393cb0572fe9a635de2aa616e2e284.setContent(i_frame_a0f94fc5afafa1ef45c8545996899794);
+            
+        
+
+        marker_6b0d11a70e8334e2cedfead69da108d3.bindPopup(popup_58393cb0572fe9a635de2aa616e2e284)
+        ;
+
+        
+    
+    
+            marker_6b0d11a70e8334e2cedfead69da108d3.bindTooltip(
+                `<div>
+                     
+        <div style="font-size: 16px; font-family: 'Helvetica Neue', Arial, sans-serif; padding: 5px; max-width: 600px;">
+            <p style="margin: 0 0 15px 0;"><b>公司名:</b> 维他动力</p>
+            <p style="margin: 0 0 15px 0;"><b>地区:</b> 中国北京</p>
+            <p style="margin: 0 0 15px 0;"><b>分类:</b> 通用机器人</p>
+            <p style="margin: 0 0 15px 0;"><b>成立时间:</b> 未明确</p>
+            <p style="margin: 0 0 15px 0;"><b>创始人/团队:</b> 余轶南（创始人兼 CEO）</p>
+            <p style="margin: 0 0 15px 0;"><b>代表产品:</b> 具身智能/家庭服务型机器人产品方向</p>
+            <hr style="margin: 15px 0;">
+            <p style="margin: 0;"><b>公司简要介绍:</b></p>
+            <p style="margin: 0; font-style: italic;">开发通用人形机器人，聚焦家庭与商业服务场景</p>
+        </div>
+        
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_9f6cfa19052d24e910866a6d0bdc1d5b = L.marker(
+                [39.99, 116.32],
+                {}
+            ).addTo(marker_cluster_10ea701e6bed96c037c494563bca5929);
+        
+    
+            var icon_c3b0d63fe4ebfad4082596a75463ccae = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "robot", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_9f6cfa19052d24e910866a6d0bdc1d5b.setIcon(icon_c3b0d63fe4ebfad4082596a75463ccae);
+        
+    
+        var popup_e785825fb4236ced6b59a43a29589b2a = L.popup({"maxWidth": 200});
+
+        
+            
+                var i_frame_ea97e1b603f4909f5f94e9154ea80fbf = $(`<iframe src="data:text/html;charset=utf-8;base64,CiAgICAKICAgICAgICA8ZGl2IHN0eWxlPSJ0ZXh0LWFsaWduOiBjZW50ZXI7IGZvbnQtZmFtaWx5OiAnSGVsdmV0aWNhIE5ldWUnLCBBcmlhbCwgc2Fucy1zZXJpZjsiPgogICAgICAgICAgICA8aDQgc3R5bGU9Im1hcmdpbi1ib3R0b206IDE1cHg7IGZvbnQtc2l6ZTogMTZweDsiPumTtuays+mAmueUqDwvaDQ+CiAgICAgICAgICAgIDxhIGhyZWY9Imh0dHBzOi8vd3d3LmdhbGJvdC5jb20vIiB0YXJnZXQ9Il9ibGFuayIgc3R5bGU9IgogICAgICAgICAgICAgICAgZGlzcGxheTogaW5saW5lLWJsb2NrOwogICAgICAgICAgICAgICAgcGFkZGluZzogOHB4IDE4cHg7CiAgICAgICAgICAgICAgICBmb250LXNpemU6IDE0cHg7CiAgICAgICAgICAgICAgICBmb250LXdlaWdodDogYm9sZDsKICAgICAgICAgICAgICAgIGNvbG9yOiAjZmZmZmZmOwogICAgICAgICAgICAgICAgYmFja2dyb3VuZC1jb2xvcjogIzAwN0JGRjsKICAgICAgICAgICAgICAgIGJvcmRlcjogbm9uZTsKICAgICAgICAgICAgICAgIGJvcmRlci1yYWRpdXM6IDVweDsKICAgICAgICAgICAgICAgIHRleHQtZGVjb3JhdGlvbjogbm9uZTsKICAgICAgICAgICAgICAgIGJveC1zaGFkb3c6IDAgMnB4IDRweCByZ2JhKDAsMCwwLDAuMik7CiAgICAgICAgICAgICI+6K6/6Zeu5a6Y572RPC9hPgogICAgICAgIDwvZGl2PgogICAgICAgIA==" width="200" style="border:none !important;" height="80"></iframe>`)[0];
+                popup_e785825fb4236ced6b59a43a29589b2a.setContent(i_frame_ea97e1b603f4909f5f94e9154ea80fbf);
+            
+        
+
+        marker_9f6cfa19052d24e910866a6d0bdc1d5b.bindPopup(popup_e785825fb4236ced6b59a43a29589b2a)
+        ;
+
+        
+    
+    
+            marker_9f6cfa19052d24e910866a6d0bdc1d5b.bindTooltip(
+                `<div>
+                     
+        <div style="font-size: 16px; font-family: 'Helvetica Neue', Arial, sans-serif; padding: 5px; max-width: 600px;">
+            <p style="margin: 0 0 15px 0;"><b>公司名:</b> 银河通用</p>
+            <p style="margin: 0 0 15px 0;"><b>地区:</b> 中国北京</p>
+            <p style="margin: 0 0 15px 0;"><b>分类:</b> 通用服务机器人</p>
+            <p style="margin: 0 0 15px 0;"><b>成立时间:</b> 2023年</p>
+            <p style="margin: 0 0 15px 0;"><b>创始人/团队:</b> 王鹤（北大教授）</p>
+            <p style="margin: 0 0 15px 0;"><b>代表产品:</b> 研发方向：结合具身大模型实现自适应环境交互</p>
+            <hr style="margin: 15px 0;">
+            <p style="margin: 0;"><b>公司简要介绍:</b></p>
+            <p style="margin: 0; font-style: italic;">北大团队主导，聚焦工业/家庭场景的通用服务机器人</p>
+        </div>
+        
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_237b8116b88335d6c7dd04640d371348 = L.marker(
+                [39.8, 116.56],
+                {}
+            ).addTo(marker_cluster_10ea701e6bed96c037c494563bca5929);
+        
+    
+            var icon_6eb846e99091460366b0f1620367faae = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "robot", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_237b8116b88335d6c7dd04640d371348.setIcon(icon_6eb846e99091460366b0f1620367faae);
+        
+    
+        var popup_f46ba8929307a94bacfbcf6cc2ab6995 = L.popup({"maxWidth": 200});
+
+        
+            
+                var i_frame_9a475e306fb12bafa71ee8a1d04b7459 = $(`<iframe src="data:text/html;charset=utf-8;base64,CiAgICAKICAgICAgICA8ZGl2IHN0eWxlPSJ0ZXh0LWFsaWduOiBjZW50ZXI7IGZvbnQtZmFtaWx5OiAnSGVsdmV0aWNhIE5ldWUnLCBBcmlhbCwgc2Fucy1zZXJpZjsiPgogICAgICAgICAgICA8aDQgc3R5bGU9Im1hcmdpbi1ib3R0b206IDE1cHg7IGZvbnQtc2l6ZTogMTZweDsiPuS8mOW/hemAiTwvaDQ+CiAgICAgICAgICAgIDxhIGhyZWY9Imh0dHBzOi8vd3d3LnVidHJvYm90LmNvbSIgdGFyZ2V0PSJfYmxhbmsiIHN0eWxlPSIKICAgICAgICAgICAgICAgIGRpc3BsYXk6IGlubGluZS1ibG9jazsKICAgICAgICAgICAgICAgIHBhZGRpbmc6IDhweCAxOHB4OwogICAgICAgICAgICAgICAgZm9udC1zaXplOiAxNHB4OwogICAgICAgICAgICAgICAgZm9udC13ZWlnaHQ6IGJvbGQ7CiAgICAgICAgICAgICAgICBjb2xvcjogI2ZmZmZmZjsKICAgICAgICAgICAgICAgIGJhY2tncm91bmQtY29sb3I6ICMwMDdCRkY7CiAgICAgICAgICAgICAgICBib3JkZXI6IG5vbmU7CiAgICAgICAgICAgICAgICBib3JkZXItcmFkaXVzOiA1cHg7CiAgICAgICAgICAgICAgICB0ZXh0LWRlY29yYXRpb246IG5vbmU7CiAgICAgICAgICAgICAgICBib3gtc2hhZG93OiAwIDJweCA0cHggcmdiYSgwLDAsMCwwLjIpOwogICAgICAgICAgICAiPuiuv+mXruWumOe9kTwvYT4KICAgICAgICA8L2Rpdj4KICAgICAgICA=" width="200" style="border:none !important;" height="80"></iframe>`)[0];
+                popup_f46ba8929307a94bacfbcf6cc2ab6995.setContent(i_frame_9a475e306fb12bafa71ee8a1d04b7459);
+            
+        
+
+        marker_237b8116b88335d6c7dd04640d371348.bindPopup(popup_f46ba8929307a94bacfbcf6cc2ab6995)
+        ;
+
+        
+    
+    
+            marker_237b8116b88335d6c7dd04640d371348.bindTooltip(
+                `<div>
+                     
+        <div style="font-size: 16px; font-family: 'Helvetica Neue', Arial, sans-serif; padding: 5px; max-width: 600px;">
+            <p style="margin: 0 0 15px 0;"><b>公司名:</b> 优必选</p>
+            <p style="margin: 0 0 15px 0;"><b>地区:</b> 中国北京</p>
+            <p style="margin: 0 0 15px 0;"><b>分类:</b> 人形机器人</p>
+            <p style="margin: 0 0 15px 0;"><b>成立时间:</b> 2012年</p>
+            <p style="margin: 0 0 15px 0;"><b>创始人/团队:</b> 周剑</p>
+            <p style="margin: 0 0 15px 0;"><b>代表产品:</b> Walker系列、Jimu机器人、Qrobot Alpha</p>
+            <hr style="margin: 15px 0;">
+            <p style="margin: 0;"><b>公司简要介绍:</b></p>
+            <p style="margin: 0; font-style: italic;">全球人形机器人领导者，全栈技术覆盖运动控制、AI算法、<br>操作系统ROSA，率先实现商业化</p>
+        </div>
+        
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_446654e4b1c858d42761b3aae1c728e5 = L.marker(
+                [30.25, 119.91],
+                {}
+            ).addTo(marker_cluster_10ea701e6bed96c037c494563bca5929);
+        
+    
+            var icon_e1e95e5c133a85d8931f2bd44f0a1173 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "robot", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_446654e4b1c858d42761b3aae1c728e5.setIcon(icon_e1e95e5c133a85d8931f2bd44f0a1173);
+        
+    
+        var popup_2d7722d8683a227ebf483c7d77a7588d = L.popup({"maxWidth": 200});
+
+        
+            
+                var i_frame_ffad71e12347eed87e3c625f2a0c9fee = $(`<iframe src="data:text/html;charset=utf-8;base64,CiAgICAKICAgICAgICA8ZGl2IHN0eWxlPSJ0ZXh0LWFsaWduOiBjZW50ZXI7IGZvbnQtZmFtaWx5OiAnSGVsdmV0aWNhIE5ldWUnLCBBcmlhbCwgc2Fucy1zZXJpZjsiPgogICAgICAgICAgICA8aDQgc3R5bGU9Im1hcmdpbi1ib3R0b206IDE1cHg7IGZvbnQtc2l6ZTogMTZweDsiPuaciem5v+acuuWZqOS6ujwvaDQ+CiAgICAgICAgICAgIDxhIGhyZWY9Imh0dHBzOi8vdWRlZXIuYWkvYWJvdXQiIHRhcmdldD0iX2JsYW5rIiBzdHlsZT0iCiAgICAgICAgICAgICAgICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7CiAgICAgICAgICAgICAgICBwYWRkaW5nOiA4cHggMThweDsKICAgICAgICAgICAgICAgIGZvbnQtc2l6ZTogMTRweDsKICAgICAgICAgICAgICAgIGZvbnQtd2VpZ2h0OiBib2xkOwogICAgICAgICAgICAgICAgY29sb3I6ICNmZmZmZmY7CiAgICAgICAgICAgICAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjMDA3QkZGOwogICAgICAgICAgICAgICAgYm9yZGVyOiBub25lOwogICAgICAgICAgICAgICAgYm9yZGVyLXJhZGl1czogNXB4OwogICAgICAgICAgICAgICAgdGV4dC1kZWNvcmF0aW9uOiBub25lOwogICAgICAgICAgICAgICAgYm94LXNoYWRvdzogMCAycHggNHB4IHJnYmEoMCwwLDAsMC4yKTsKICAgICAgICAgICAgIj7orr/pl67lrpjnvZE8L2E+CiAgICAgICAgPC9kaXY+CiAgICAgICAg" width="200" style="border:none !important;" height="80"></iframe>`)[0];
+                popup_2d7722d8683a227ebf483c7d77a7588d.setContent(i_frame_ffad71e12347eed87e3c625f2a0c9fee);
+            
+        
+
+        marker_446654e4b1c858d42761b3aae1c728e5.bindPopup(popup_2d7722d8683a227ebf483c7d77a7588d)
+        ;
+
+        
+    
+    
+            marker_446654e4b1c858d42761b3aae1c728e5.bindTooltip(
+                `<div>
+                     
+        <div style="font-size: 16px; font-family: 'Helvetica Neue', Arial, sans-serif; padding: 5px; max-width: 600px;">
+            <p style="margin: 0 0 15px 0;"><b>公司名:</b> 有鹿机器人</p>
+            <p style="margin: 0 0 15px 0;"><b>地区:</b> 中国杭州</p>
+            <p style="margin: 0 0 15px 0;"><b>分类:</b> 轮式机器人</p>
+            <p style="margin: 0 0 15px 0;"><b>成立时间:</b> 2023年</p>
+            <p style="margin: 0 0 15px 0;"><b>创始人/团队:</b> 陈俊波</p>
+            <p style="margin: 0 0 15px 0;"><b>代表产品:</b> 轮式清扫机器人</p>
+            <hr style="margin: 15px 0;">
+            <p style="margin: 0;"><b>公司简要介绍:</b></p>
+            <p style="margin: 0; font-style: italic;">达摩院背景，聚焦轮式清扫机器人</p>
+        </div>
+        
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_e53af9ffee1b9b118ed183b7244b6c2f = L.marker(
+                [30.19, 120.22],
+                {}
+            ).addTo(marker_cluster_10ea701e6bed96c037c494563bca5929);
+        
+    
+            var icon_6495aba30ff1cf21fc61f098768b8c97 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "robot", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_e53af9ffee1b9b118ed183b7244b6c2f.setIcon(icon_6495aba30ff1cf21fc61f098768b8c97);
+        
+    
+        var popup_5b5281cb85febbc8e05246773e35afd5 = L.popup({"maxWidth": 200});
+
+        
+            
+                var i_frame_b7853d3adca82a21500be29e095506ba = $(`<iframe src="data:text/html;charset=utf-8;base64,CiAgICAKICAgICAgICA8ZGl2IHN0eWxlPSJ0ZXh0LWFsaWduOiBjZW50ZXI7IGZvbnQtZmFtaWx5OiAnSGVsdmV0aWNhIE5ldWUnLCBBcmlhbCwgc2Fucy1zZXJpZjsiPgogICAgICAgICAgICA8aDQgc3R5bGU9Im1hcmdpbi1ib3R0b206IDE1cHg7IGZvbnQtc2l6ZTogMTZweDsiPuWuh+agkeenkeaKgDwvaDQ+CiAgICAgICAgICAgIDxhIGhyZWY9Imh0dHBzOi8vd3d3LnVuaXRyZWUuY29tIiB0YXJnZXQ9Il9ibGFuayIgc3R5bGU9IgogICAgICAgICAgICAgICAgZGlzcGxheTogaW5saW5lLWJsb2NrOwogICAgICAgICAgICAgICAgcGFkZGluZzogOHB4IDE4cHg7CiAgICAgICAgICAgICAgICBmb250LXNpemU6IDE0cHg7CiAgICAgICAgICAgICAgICBmb250LXdlaWdodDogYm9sZDsKICAgICAgICAgICAgICAgIGNvbG9yOiAjZmZmZmZmOwogICAgICAgICAgICAgICAgYmFja2dyb3VuZC1jb2xvcjogIzAwN0JGRjsKICAgICAgICAgICAgICAgIGJvcmRlcjogbm9uZTsKICAgICAgICAgICAgICAgIGJvcmRlci1yYWRpdXM6IDVweDsKICAgICAgICAgICAgICAgIHRleHQtZGVjb3JhdGlvbjogbm9uZTsKICAgICAgICAgICAgICAgIGJveC1zaGFkb3c6IDAgMnB4IDRweCByZ2JhKDAsMCwwLDAuMik7CiAgICAgICAgICAgICI+6K6/6Zeu5a6Y572RPC9hPgogICAgICAgIDwvZGl2PgogICAgICAgIA==" width="200" style="border:none !important;" height="80"></iframe>`)[0];
+                popup_5b5281cb85febbc8e05246773e35afd5.setContent(i_frame_b7853d3adca82a21500be29e095506ba);
+            
+        
+
+        marker_e53af9ffee1b9b118ed183b7244b6c2f.bindPopup(popup_5b5281cb85febbc8e05246773e35afd5)
+        ;
+
+        
+    
+    
+            marker_e53af9ffee1b9b118ed183b7244b6c2f.bindTooltip(
+                `<div>
+                     
+        <div style="font-size: 16px; font-family: 'Helvetica Neue', Arial, sans-serif; padding: 5px; max-width: 600px;">
+            <p style="margin: 0 0 15px 0;"><b>公司名:</b> 宇树科技</p>
+            <p style="margin: 0 0 15px 0;"><b>地区:</b> 中国杭州</p>
+            <p style="margin: 0 0 15px 0;"><b>分类:</b> 四足/人形机器人</p>
+            <p style="margin: 0 0 15px 0;"><b>成立时间:</b> 2016年</p>
+            <p style="margin: 0 0 15px 0;"><b>创始人/团队:</b> 王兴兴</p>
+            <p style="margin: 0 0 15px 0;"><b>代表产品:</b> Unitree H1、G1、Aliengo四足</p>
+            <hr style="margin: 15px 0;">
+            <p style="margin: 0;"><b>公司简要介绍:</b></p>
+            <p style="margin: 0; font-style: italic;">专注高性能足式机器人，自研核心部件与运动控制算法，全<br>球首个可后空翻商业化人形机器人</p>
+        </div>
+        
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_ccdb6257ba82d6c6288f9d2f5c67ff92 = L.marker(
+                [30.33, 120.07],
+                {}
+            ).addTo(marker_cluster_10ea701e6bed96c037c494563bca5929);
+        
+    
+            var icon_8f9241d73855eb1e69de79e3d947dc05 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "robot", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_ccdb6257ba82d6c6288f9d2f5c67ff92.setIcon(icon_8f9241d73855eb1e69de79e3d947dc05);
+        
+    
+        var popup_30968ebc4961eac55397007fd3110398 = L.popup({"maxWidth": 200});
+
+        
+            
+                var i_frame_ed369320ee494f96fed24bdf7735c337 = $(`<iframe src="data:text/html;charset=utf-8;base64,CiAgICAKICAgICAgICA8ZGl2IHN0eWxlPSJ0ZXh0LWFsaWduOiBjZW50ZXI7IGZvbnQtZmFtaWx5OiAnSGVsdmV0aWNhIE5ldWUnLCBBcmlhbCwgc2Fucy1zZXJpZjsiPgogICAgICAgICAgICA8aDQgc3R5bGU9Im1hcmdpbi1ib3R0b206IDE1cHg7IGZvbnQtc2l6ZTogMTZweDsiPuS6kea3seWkhOenkeaKgDwvaDQ+CiAgICAgICAgICAgIDxhIGhyZWY9Imh0dHBzOi8vd3d3LmRlZXByb2JvdGljcy5jbiIgdGFyZ2V0PSJfYmxhbmsiIHN0eWxlPSIKICAgICAgICAgICAgICAgIGRpc3BsYXk6IGlubGluZS1ibG9jazsKICAgICAgICAgICAgICAgIHBhZGRpbmc6IDhweCAxOHB4OwogICAgICAgICAgICAgICAgZm9udC1zaXplOiAxNHB4OwogICAgICAgICAgICAgICAgZm9udC13ZWlnaHQ6IGJvbGQ7CiAgICAgICAgICAgICAgICBjb2xvcjogI2ZmZmZmZjsKICAgICAgICAgICAgICAgIGJhY2tncm91bmQtY29sb3I6ICMwMDdCRkY7CiAgICAgICAgICAgICAgICBib3JkZXI6IG5vbmU7CiAgICAgICAgICAgICAgICBib3JkZXItcmFkaXVzOiA1cHg7CiAgICAgICAgICAgICAgICB0ZXh0LWRlY29yYXRpb246IG5vbmU7CiAgICAgICAgICAgICAgICBib3gtc2hhZG93OiAwIDJweCA0cHggcmdiYSgwLDAsMCwwLjIpOwogICAgICAgICAgICAiPuiuv+mXruWumOe9kTwvYT4KICAgICAgICA8L2Rpdj4KICAgICAgICA=" width="200" style="border:none !important;" height="80"></iframe>`)[0];
+                popup_30968ebc4961eac55397007fd3110398.setContent(i_frame_ed369320ee494f96fed24bdf7735c337);
+            
+        
+
+        marker_ccdb6257ba82d6c6288f9d2f5c67ff92.bindPopup(popup_30968ebc4961eac55397007fd3110398)
+        ;
+
+        
+    
+    
+            marker_ccdb6257ba82d6c6288f9d2f5c67ff92.bindTooltip(
+                `<div>
+                     
+        <div style="font-size: 16px; font-family: 'Helvetica Neue', Arial, sans-serif; padding: 5px; max-width: 600px;">
+            <p style="margin: 0 0 15px 0;"><b>公司名:</b> 云深处科技</p>
+            <p style="margin: 0 0 15px 0;"><b>地区:</b> 中国杭州</p>
+            <p style="margin: 0 0 15px 0;"><b>分类:</b> 四足机器人</p>
+            <p style="margin: 0 0 15px 0;"><b>成立时间:</b> 2017年</p>
+            <p style="margin: 0 0 15px 0;"><b>创始人/团队:</b> 浙大团队</p>
+            <p style="margin: 0 0 15px 0;"><b>代表产品:</b> 绝影系列</p>
+            <hr style="margin: 15px 0;">
+            <p style="margin: 0;"><b>公司简要介绍:</b></p>
+            <p style="margin: 0; font-style: italic;">中国四足机器人先锋，“绝影”系列实现全自主巡检</p>
+        </div>
+        
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_0e475b510fb2ce1e46ffea6fc9e617a2 = L.marker(
+                [31.14, 121.61],
+                {}
+            ).addTo(marker_cluster_10ea701e6bed96c037c494563bca5929);
+        
+    
+            var icon_e0dcdb261e54bf9aa1460a1ce8353702 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "robot", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_0e475b510fb2ce1e46ffea6fc9e617a2.setIcon(icon_e0dcdb261e54bf9aa1460a1ce8353702);
+        
+    
+        var popup_69f27e05de6faf3a64ab51b6c5bc451e = L.popup({"maxWidth": 200});
+
+        
+            
+                var i_frame_f0525eed3ff04670c3f3e94bd2ba81cb = $(`<iframe src="data:text/html;charset=utf-8;base64,CiAgICAKICAgICAgICA8ZGl2IHN0eWxlPSJ0ZXh0LWFsaWduOiBjZW50ZXI7IGZvbnQtZmFtaWx5OiAnSGVsdmV0aWNhIE5ldWUnLCBBcmlhbCwgc2Fucy1zZXJpZjsiPgogICAgICAgICAgICA8aDQgc3R5bGU9Im1hcmdpbi1ib3R0b206IDE1cHg7IGZvbnQtc2l6ZTogMTZweDsiPuaZuuWFg+acuuWZqOS6ujwvaDQ+CiAgICAgICAgICAgIDxhIGhyZWY9Imh0dHBzOi8vd3d3LmFnaWJvdC5jb20iIHRhcmdldD0iX2JsYW5rIiBzdHlsZT0iCiAgICAgICAgICAgICAgICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7CiAgICAgICAgICAgICAgICBwYWRkaW5nOiA4cHggMThweDsKICAgICAgICAgICAgICAgIGZvbnQtc2l6ZTogMTRweDsKICAgICAgICAgICAgICAgIGZvbnQtd2VpZ2h0OiBib2xkOwogICAgICAgICAgICAgICAgY29sb3I6ICNmZmZmZmY7CiAgICAgICAgICAgICAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjMDA3QkZGOwogICAgICAgICAgICAgICAgYm9yZGVyOiBub25lOwogICAgICAgICAgICAgICAgYm9yZGVyLXJhZGl1czogNXB4OwogICAgICAgICAgICAgICAgdGV4dC1kZWNvcmF0aW9uOiBub25lOwogICAgICAgICAgICAgICAgYm94LXNoYWRvdzogMCAycHggNHB4IHJnYmEoMCwwLDAsMC4yKTsKICAgICAgICAgICAgIj7orr/pl67lrpjnvZE8L2E+CiAgICAgICAgPC9kaXY+CiAgICAgICAg" width="200" style="border:none !important;" height="80"></iframe>`)[0];
+                popup_69f27e05de6faf3a64ab51b6c5bc451e.setContent(i_frame_f0525eed3ff04670c3f3e94bd2ba81cb);
+            
+        
+
+        marker_0e475b510fb2ce1e46ffea6fc9e617a2.bindPopup(popup_69f27e05de6faf3a64ab51b6c5bc451e)
+        ;
+
+        
+    
+    
+            marker_0e475b510fb2ce1e46ffea6fc9e617a2.bindTooltip(
+                `<div>
+                     
+        <div style="font-size: 16px; font-family: 'Helvetica Neue', Arial, sans-serif; padding: 5px; max-width: 600px;">
+            <p style="margin: 0 0 15px 0;"><b>公司名:</b> 智元机器人</p>
+            <p style="margin: 0 0 15px 0;"><b>地区:</b> 中国上海</p>
+            <p style="margin: 0 0 15px 0;"><b>分类:</b> 人形机器人</p>
+            <p style="margin: 0 0 15px 0;"><b>成立时间:</b> 2023年</p>
+            <p style="margin: 0 0 15px 0;"><b>创始人/团队:</b> 智晖君</p>
+            <p style="margin: 0 0 15px 0;"><b>代表产品:</b> 远征A1/A2</p>
+            <hr style="margin: 15px 0;">
+            <p style="margin: 0;"><b>公司简要介绍:</b></p>
+            <p style="margin: 0; font-style: italic;">华为天才少年创立，快速融资并推出远征A1系列，技术迭代<br>迅速</p>
+        </div>
+        
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_c15e38383fada1f3bc21740f368e77ae = L.marker(
+                [39.79, 116.56],
+                {}
+            ).addTo(marker_cluster_10ea701e6bed96c037c494563bca5929);
+        
+    
+            var icon_63eaf1bf6fecf6ccfc09c495ffd61d85 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "robot", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_c15e38383fada1f3bc21740f368e77ae.setIcon(icon_63eaf1bf6fecf6ccfc09c495ffd61d85);
+        
+    
+        var popup_b6c29c822af044cfefaea9002475ad5e = L.popup({"maxWidth": 200});
+
+        
+            
+                var i_frame_6dd3608205bbfb32a8247ffdfd5480fd = $(`<iframe src="data:text/html;charset=utf-8;base64,CiAgICAKICAgICAgICA8ZGl2IHN0eWxlPSJ0ZXh0LWFsaWduOiBjZW50ZXI7IGZvbnQtZmFtaWx5OiAnSGVsdmV0aWNhIE5ldWUnLCBBcmlhbCwgc2Fucy1zZXJpZjsiPgogICAgICAgICAgICA8aDQgc3R5bGU9Im1hcmdpbi1ib3R0b206IDE1cHg7IGZvbnQtc2l6ZTogMTZweDsiPuS8l+aTjuacuuWZqOS6ujwvaDQ+CiAgICAgICAgICAgIDxhIGhyZWY9Imh0dHBzOi8vd3d3LmVuZ2luZWFpLmNvbS5jbi8iIHRhcmdldD0iX2JsYW5rIiBzdHlsZT0iCiAgICAgICAgICAgICAgICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7CiAgICAgICAgICAgICAgICBwYWRkaW5nOiA4cHggMThweDsKICAgICAgICAgICAgICAgIGZvbnQtc2l6ZTogMTRweDsKICAgICAgICAgICAgICAgIGZvbnQtd2VpZ2h0OiBib2xkOwogICAgICAgICAgICAgICAgY29sb3I6ICNmZmZmZmY7CiAgICAgICAgICAgICAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjMDA3QkZGOwogICAgICAgICAgICAgICAgYm9yZGVyOiBub25lOwogICAgICAgICAgICAgICAgYm9yZGVyLXJhZGl1czogNXB4OwogICAgICAgICAgICAgICAgdGV4dC1kZWNvcmF0aW9uOiBub25lOwogICAgICAgICAgICAgICAgYm94LXNoYWRvdzogMCAycHggNHB4IHJnYmEoMCwwLDAsMC4yKTsKICAgICAgICAgICAgIj7orr/pl67lrpjnvZE8L2E+CiAgICAgICAgPC9kaXY+CiAgICAgICAg" width="200" style="border:none !important;" height="80"></iframe>`)[0];
+                popup_b6c29c822af044cfefaea9002475ad5e.setContent(i_frame_6dd3608205bbfb32a8247ffdfd5480fd);
+            
+        
+
+        marker_c15e38383fada1f3bc21740f368e77ae.bindPopup(popup_b6c29c822af044cfefaea9002475ad5e)
+        ;
+
+        
+    
+    
+            marker_c15e38383fada1f3bc21740f368e77ae.bindTooltip(
+                `<div>
+                     
+        <div style="font-size: 16px; font-family: 'Helvetica Neue', Arial, sans-serif; padding: 5px; max-width: 600px;">
+            <p style="margin: 0 0 15px 0;"><b>公司名:</b> 众擎机器人</p>
+            <p style="margin: 0 0 15px 0;"><b>地区:</b> 中国北京</p>
+            <p style="margin: 0 0 15px 0;"><b>分类:</b> 低价人形机器人</p>
+            <p style="margin: 0 0 15px 0;"><b>成立时间:</b> 2023年</p>
+            <p style="margin: 0 0 15px 0;"><b>创始人/团队:</b> 赵同阳</p>
+            <p style="margin: 0 0 15px 0;"><b>代表产品:</b> SA01</p>
+            <hr style="margin: 15px 0;">
+            <p style="margin: 0;"><b>公司简要介绍:</b></p>
+            <p style="margin: 0; font-style: italic;">推出低价双足机器人SA01，定位普惠型产品</p>
+        </div>
+        
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_997380b5057db2c825010def3acec27f = L.marker(
+                [22.58, 113.96],
+                {}
+            ).addTo(marker_cluster_10ea701e6bed96c037c494563bca5929);
+        
+    
+            var icon_a0ee4f027874c9d9ac8963668622b3ff = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "robot", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_997380b5057db2c825010def3acec27f.setIcon(icon_a0ee4f027874c9d9ac8963668622b3ff);
+        
+    
+        var popup_4944022ad67e4e500a08f06a9bbb83d6 = L.popup({"maxWidth": 200});
+
+        
+            
+                var i_frame_614ad36c6df6cf85f53508d08245e9f6 = $(`<iframe src="data:text/html;charset=utf-8;base64,CiAgICAKICAgICAgICA8ZGl2IHN0eWxlPSJ0ZXh0LWFsaWduOiBjZW50ZXI7IGZvbnQtZmFtaWx5OiAnSGVsdmV0aWNhIE5ldWUnLCBBcmlhbCwgc2Fucy1zZXJpZjsiPgogICAgICAgICAgICA8aDQgc3R5bGU9Im1hcmdpbi1ib3R0b206IDE1cHg7IGZvbnQtc2l6ZTogMTZweDsiPumAkOmZheWKqOWKmzwvaDQ+CiAgICAgICAgICAgIDxhIGhyZWY9Imh0dHBzOi8vd3d3LmxpbXhkeW5hbWljcy5jb20iIHRhcmdldD0iX2JsYW5rIiBzdHlsZT0iCiAgICAgICAgICAgICAgICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7CiAgICAgICAgICAgICAgICBwYWRkaW5nOiA4cHggMThweDsKICAgICAgICAgICAgICAgIGZvbnQtc2l6ZTogMTRweDsKICAgICAgICAgICAgICAgIGZvbnQtd2VpZ2h0OiBib2xkOwogICAgICAgICAgICAgICAgY29sb3I6ICNmZmZmZmY7CiAgICAgICAgICAgICAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjMDA3QkZGOwogICAgICAgICAgICAgICAgYm9yZGVyOiBub25lOwogICAgICAgICAgICAgICAgYm9yZGVyLXJhZGl1czogNXB4OwogICAgICAgICAgICAgICAgdGV4dC1kZWNvcmF0aW9uOiBub25lOwogICAgICAgICAgICAgICAgYm94LXNoYWRvdzogMCAycHggNHB4IHJnYmEoMCwwLDAsMC4yKTsKICAgICAgICAgICAgIj7orr/pl67lrpjnvZE8L2E+CiAgICAgICAgPC9kaXY+CiAgICAgICAg" width="200" style="border:none !important;" height="80"></iframe>`)[0];
+                popup_4944022ad67e4e500a08f06a9bbb83d6.setContent(i_frame_614ad36c6df6cf85f53508d08245e9f6);
+            
+        
+
+        marker_997380b5057db2c825010def3acec27f.bindPopup(popup_4944022ad67e4e500a08f06a9bbb83d6)
+        ;
+
+        
+    
+    
+            marker_997380b5057db2c825010def3acec27f.bindTooltip(
+                `<div>
+                     
+        <div style="font-size: 16px; font-family: 'Helvetica Neue', Arial, sans-serif; padding: 5px; max-width: 600px;">
+            <p style="margin: 0 0 15px 0;"><b>公司名:</b> 逐际动力</p>
+            <p style="margin: 0 0 15px 0;"><b>地区:</b> 中国深圳</p>
+            <p style="margin: 0 0 15px 0;"><b>分类:</b> 通用机器人研发</p>
+            <p style="margin: 0 0 15px 0;"><b>成立时间:</b> 2022年1月</p>
+            <p style="margin: 0 0 15px 0;"><b>创始人/团队:</b> 张巍（南科大）</p>
+            <p style="margin: 0 0 15px 0;"><b>代表产品:</b> 逐际人形机器人、四轮足机器人</p>
+            <hr style="margin: 15px 0;">
+            <p style="margin: 0;"><b>公司简要介绍:</b></p>
+            <p style="margin: 0; font-style: italic;">聚焦全尺寸人形机器人，衍生双足/四轮足产品，结合具身<br>大模型</p>
+        </div>
+        
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_4116c099c51814f0742dbb5c9f5847c4 = L.marker(
+                [31.21, 120.57],
+                {}
+            ).addTo(marker_cluster_10ea701e6bed96c037c494563bca5929);
+        
+    
+            var icon_e056e4f59aafc1181fd6264be817bd3b = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "robot", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_4116c099c51814f0742dbb5c9f5847c4.setIcon(icon_e056e4f59aafc1181fd6264be817bd3b);
+        
+    
+        var popup_f1064a13b94cb448011f5321bba50f20 = L.popup({"maxWidth": 200});
+
+        
+            
+                var i_frame_6a885b0ba081b1f2da4763177f67e606 = $(`<iframe src="data:text/html;charset=utf-8;base64,CiAgICAKICAgICAgICA8ZGl2IHN0eWxlPSJ0ZXh0LWFsaWduOiBjZW50ZXI7IGZvbnQtZmFtaWx5OiAnSGVsdmV0aWNhIE5ldWUnLCBBcmlhbCwgc2Fucy1zZXJpZjsiPgogICAgICAgICAgICA8aDQgc3R5bGU9Im1hcmdpbi1ib3R0b206IDE1cHg7IGZvbnQtc2l6ZTogMTZweDsiPui/veinhTwvaDQ+CiAgICAgICAgICAgIDxhIGhyZWY9Imh0dHBzOi8vd3d3LmRyZWFtZS50ZWNoLyIgdGFyZ2V0PSJfYmxhbmsiIHN0eWxlPSIKICAgICAgICAgICAgICAgIGRpc3BsYXk6IGlubGluZS1ibG9jazsKICAgICAgICAgICAgICAgIHBhZGRpbmc6IDhweCAxOHB4OwogICAgICAgICAgICAgICAgZm9udC1zaXplOiAxNHB4OwogICAgICAgICAgICAgICAgZm9udC13ZWlnaHQ6IGJvbGQ7CiAgICAgICAgICAgICAgICBjb2xvcjogI2ZmZmZmZjsKICAgICAgICAgICAgICAgIGJhY2tncm91bmQtY29sb3I6ICMwMDdCRkY7CiAgICAgICAgICAgICAgICBib3JkZXI6IG5vbmU7CiAgICAgICAgICAgICAgICBib3JkZXItcmFkaXVzOiA1cHg7CiAgICAgICAgICAgICAgICB0ZXh0LWRlY29yYXRpb246IG5vbmU7CiAgICAgICAgICAgICAgICBib3gtc2hhZG93OiAwIDJweCA0cHggcmdiYSgwLDAsMCwwLjIpOwogICAgICAgICAgICAiPuiuv+mXruWumOe9kTwvYT4KICAgICAgICA8L2Rpdj4KICAgICAgICA=" width="200" style="border:none !important;" height="80"></iframe>`)[0];
+                popup_f1064a13b94cb448011f5321bba50f20.setContent(i_frame_6a885b0ba081b1f2da4763177f67e606);
+            
+        
+
+        marker_4116c099c51814f0742dbb5c9f5847c4.bindPopup(popup_f1064a13b94cb448011f5321bba50f20)
+        ;
+
+        
+    
+    
+            marker_4116c099c51814f0742dbb5c9f5847c4.bindTooltip(
+                `<div>
+                     
+        <div style="font-size: 16px; font-family: 'Helvetica Neue', Arial, sans-serif; padding: 5px; max-width: 600px;">
+            <p style="margin: 0 0 15px 0;"><b>公司名:</b> 追觅</p>
+            <p style="margin: 0 0 15px 0;"><b>地区:</b> 中国苏州</p>
+            <p style="margin: 0 0 15px 0;"><b>分类:</b> 家用机器人</p>
+            <p style="margin: 0 0 15px 0;"><b>成立时间:</b> 2017年</p>
+            <p style="margin: 0 0 15px 0;"><b>创始人/团队:</b> 俞浩</p>
+            <p style="margin: 0 0 15px 0;"><b>代表产品:</b> 扫地机器人系列</p>
+            <hr style="margin: 15px 0;">
+            <p style="margin: 0;"><b>公司简要介绍:</b></p>
+            <p style="margin: 0; font-style: italic;">深耕扫地机、洗地机，积累机器人技术</p>
+        </div>
+        
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_1c6f6ddee86cfe347a3a85609591b315 = L.marker(
+                [22.58, 113.93],
+                {}
+            ).addTo(marker_cluster_10ea701e6bed96c037c494563bca5929);
+        
+    
+            var icon_9a3fb00ec78bc90dd50f912e3a102bf1 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "robot", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_1c6f6ddee86cfe347a3a85609591b315.setIcon(icon_9a3fb00ec78bc90dd50f912e3a102bf1);
+        
+    
+        var popup_886f5d98104f5feb20f1717e6dfd5c0c = L.popup({"maxWidth": 200});
+
+        
+            
+                var i_frame_9d0ff7fb6492e90ce09e16e991c46c63 = $(`<iframe src="data:text/html;charset=utf-8;base64,CiAgICAKICAgICAgICA8ZGl2IHN0eWxlPSJ0ZXh0LWFsaWduOiBjZW50ZXI7IGZvbnQtZmFtaWx5OiAnSGVsdmV0aWNhIE5ldWUnLCBBcmlhbCwgc2Fucy1zZXJpZjsiPgogICAgICAgICAgICA8aDQgc3R5bGU9Im1hcmdpbi1ib3R0b206IDE1cHg7IGZvbnQtc2l6ZTogMTZweDsiPuiHquWPmOmHj+acuuWZqOS6ujwvaDQ+CiAgICAgICAgICAgIDxhIGhyZWY9Imh0dHBzOi8vd3d3Lngycm9ib3QuY29tL2Fib3V0IiB0YXJnZXQ9Il9ibGFuayIgc3R5bGU9IgogICAgICAgICAgICAgICAgZGlzcGxheTogaW5saW5lLWJsb2NrOwogICAgICAgICAgICAgICAgcGFkZGluZzogOHB4IDE4cHg7CiAgICAgICAgICAgICAgICBmb250LXNpemU6IDE0cHg7CiAgICAgICAgICAgICAgICBmb250LXdlaWdodDogYm9sZDsKICAgICAgICAgICAgICAgIGNvbG9yOiAjZmZmZmZmOwogICAgICAgICAgICAgICAgYmFja2dyb3VuZC1jb2xvcjogIzAwN0JGRjsKICAgICAgICAgICAgICAgIGJvcmRlcjogbm9uZTsKICAgICAgICAgICAgICAgIGJvcmRlci1yYWRpdXM6IDVweDsKICAgICAgICAgICAgICAgIHRleHQtZGVjb3JhdGlvbjogbm9uZTsKICAgICAgICAgICAgICAgIGJveC1zaGFkb3c6IDAgMnB4IDRweCByZ2JhKDAsMCwwLDAuMik7CiAgICAgICAgICAgICI+6K6/6Zeu5a6Y572RPC9hPgogICAgICAgIDwvZGl2PgogICAgICAgIA==" width="200" style="border:none !important;" height="80"></iframe>`)[0];
+                popup_886f5d98104f5feb20f1717e6dfd5c0c.setContent(i_frame_9d0ff7fb6492e90ce09e16e991c46c63);
+            
+        
+
+        marker_1c6f6ddee86cfe347a3a85609591b315.bindPopup(popup_886f5d98104f5feb20f1717e6dfd5c0c)
+        ;
+
+        
+    
+    
+            marker_1c6f6ddee86cfe347a3a85609591b315.bindTooltip(
+                `<div>
+                     
+        <div style="font-size: 16px; font-family: 'Helvetica Neue', Arial, sans-serif; padding: 5px; max-width: 600px;">
+            <p style="margin: 0 0 15px 0;"><b>公司名:</b> 自变量机器人</p>
+            <p style="margin: 0 0 15px 0;"><b>地区:</b> 中国上海</p>
+            <p style="margin: 0 0 15px 0;"><b>分类:</b> AGI研发</p>
+            <p style="margin: 0 0 15px 0;"><b>成立时间:</b> 2023年</p>
+            <p style="margin: 0 0 15px 0;"><b>创始人/团队:</b> Abhinav Gupta等</p>
+            <p style="margin: 0 0 15px 0;"><b>代表产品:</b> 量子 1 号，量子2号通用轮式双臂机器人</p>
+            <hr style="margin: 15px 0;">
+            <p style="margin: 0;"><b>公司简要介绍:</b></p>
+            <p style="margin: 0; font-style: italic;">卡内基梅隆团队创立，目标开发通用人形机器人</p>
+        </div>
+        
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            marker_cluster_10ea701e6bed96c037c494563bca5929.addTo(map_b82ffe75cc708d39495ffa586b902957);
+        
+    
+
+    function goToLocation(lat, lon, zoom) {
+        map_b82ffe75cc708d39495ffa586b902957.setView([lat, lon], zoom);
+    }
+
+    var NavigationControl = L.Control.extend({
+        options: {
+            position: 'topleft' 
+        },
+
+        onAdd: function (map) {
+            var container = L.DomUtil.create('div', 'leaflet-bar leaflet-control leaflet-control-custom');
+
+            container.style.backgroundColor = 'rgba(255, 255, 255, 0.85)';
+            container.style.border = '1px solid #ccc';
+            container.style.borderRadius = '8px';
+            container.style.boxShadow = '0 2px 6px rgba(0,0,0,0.2)';
+            container.style.padding = '12px 18px';
+            container.style.fontFamily = 'Arial, sans-serif';
+            container.style.cursor = 'pointer';
+
+            /* 
+             * === 新增内容 ===
+             * 1. 在 "中国区域" 之后，添加了 "中国上海"、"中国深圳" 和 "中国北京" 三个新链接。
+             * 2. 为这些城市设置了精确的经纬度坐标和更近的缩放级别 (zoom=10)。
+            */
+            container.innerHTML = `
+                <h4 style="margin-top: 0; margin-bottom: 10px; font-size: 17px; font-weight: bold; color: #333; text-align: center;">快速导航</h4>
+                
+                <a href="#" onclick="goToLocation(35, 105, 5);" style="text-decoration: none; color: #007bff; display: flex; justify-content: center; padding: 5px 35px; border-radius: 4px; white-space: nowrap; font-size: 15px;">中国区域</a>
+                <a href="#" onclick="goToLocation(31.23, 121.07, 11);" style="text-decoration: none; color: #007bff; display: flex; justify-content: center; padding: 5px 35px; border-radius: 4px; white-space: nowrap; font-size: 15px;">中国上海</a>
+                <a href="#" onclick="goToLocation(22.64, 113.85, 12);" style="text-decoration: none; color: #007bff; display: flex; justify-content: center; padding: 5px 35px; border-radius: 4px; white-space: nowrap; font-size: 15px;">中国深圳</a>
+                <a href="#" onclick="goToLocation(40, 116.40, 11);" style="text-decoration: none; color: #007bff; display: flex; justify-content: center; padding: 5px 35px; border-radius: 4px; white-space: nowrap; font-size: 15px;">中国北京</a>
+                
+                <a href="#" onclick="goToLocation(40, -98, 5);" style="text-decoration: none; color: #007bff; display: flex; justify-content: center; padding: 5px 35px; border-radius: 4px; white-space: nowrap; font-size: 15px;">美国区域</a>
+                <a href="#" onclick="goToLocation(51, 10, 5);" style="text-decoration: none; color: #007bff; display: flex; justify-content: center; padding: 5px 35px; border-radius: 4px; white-space: nowrap; font-size: 15px;">欧洲区域</a>
+                <a href="#" onclick="goToLocation(20, 0, 3);" style="text-decoration: none; color: #007bff; display: flex; justify-content: center; padding: 5px 35px; border-radius: 4px; white-space: nowrap; font-size: 15px;">全球视角</a>
+            `;
+            
+            
+            
+            container.querySelectorAll('a').forEach(a => {
+                a.onmouseover = function() { this.style.backgroundColor = '#f0f0f0'; this.style.color = '#0056b3'; }
+                a.onmouseout = function() { this.style.backgroundColor = 'transparent'; this.style.color = '#007bff'; }
+            });
+
+            L.DomEvent.disableClickPropagation(container);
+
+            return container;
+        }
+    });
+
+    new NavigationControl().addTo(map_b82ffe75cc708d39495ffa586b902957);
+
+    
+            var layer_control_c7eeb25c8ce5336160e3e81c05b3a396_layers = {
+                base_layers : {
+                    "openstreetmap" : tile_layer_7bcf57f0728d195bb47daeaa95703e3c,
+                },
+                overlays :  {
+                    "\u516c\u53f8\u5bc6\u5ea6\u70ed\u529b\u56fe" : heat_map_e0205d2f545be80fc3bb61d5f9d31b44,
+                    "\u516c\u53f8\u8be6\u7ec6\u6807\u8bb0" : marker_cluster_10ea701e6bed96c037c494563bca5929,
+                },
+            };
+            let layer_control_c7eeb25c8ce5336160e3e81c05b3a396 = L.control.layers(
+                layer_control_c7eeb25c8ce5336160e3e81c05b3a396_layers.base_layers,
+                layer_control_c7eeb25c8ce5336160e3e81c05b3a396_layers.overlays,
+                {"autoZIndex": true, "collapsed": true, "position": "topright"}
+            ).addTo(map_b82ffe75cc708d39495ffa586b902957);
+
+        
+</script>
+</html>
